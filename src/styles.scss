@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/*VARIABLES*/
+@import 'assets/stylesheets/vars';
+@import 'assets/stylesheets/mixins';
+
+/*TYPOGRAPHY*/
+@import 'assets/stylesheets/typography';
+
+/*Site structure*/
+@import 'assets/stylesheets/main';
+@import 'assets/stylesheets/material-theme';
+
+
