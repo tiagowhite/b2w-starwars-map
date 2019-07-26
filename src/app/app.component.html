@@ -1,36 +1,25 @@
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container fullscreen>
   <mat-sidenav mode="side" opened>
-    <h1>bw2-star-wars-map</h1>
+    <h2>B2W Star Wars Map</h2>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item>
+        <a class="mat-nav-list" href="#">Planetas</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a class="mat-nav-list" href="#">Sobre</a>
+      </mat-list-item>
+    </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <h3>Stroked Buttons</h3>
-    <div class="example-button-row">
-      <button mat-stroked-button>Basic</button>
-      <button mat-stroked-button color="primary">Primary</button>
-      <button mat-stroked-button color="accent">Accent</button>
-      <button mat-stroked-button color="warn">Warn</button>
-      <button mat-stroked-button disabled>Disabled</button>
-      <a mat-stroked-button routerLink=".">Link</a>
-    </div>
-
-    <h3>Fab Buttons</h3>
-    <div class="example-button-row">
-      <button mat-fab>Basic</button>
-      <button mat-fab color="primary">Primary</button>
-      <button mat-fab color="accent">Accent</button>
-      <button mat-fab color="warn">Warn</button>
-      <button mat-fab disabled>Disabled</button>
-      <button mat-fab aria-label="Example icon-button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <a mat-fab routerLink=".">Link</a>
-    </div>
-
-
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
     <router-outlet></router-outlet>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
 

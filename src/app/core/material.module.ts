@@ -15,7 +15,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   DateAdapter,
-  MatToolbarModule,
+  MatToolbarModule, MatDividerModule, MatListModule,
 } from '@angular/material';
 import {MaterialDateAdapter, MY_FORMATS} from './material-date-adapter';
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
@@ -36,7 +36,9 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
@@ -53,7 +55,9 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [
     {provide: DateAdapter, useClass: MaterialDateAdapter, deps: [MAT_DATE_LOCALE]},
