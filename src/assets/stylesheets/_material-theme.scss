@@ -1,18 +1,27 @@
 @import '~@angular/material/theming';
 
 @include mat-core();
-$swm-app-primary:        mat-palette($mat-deep-purple, 900);
-$swm-app-accent:         mat-palette($mat-pink, 400);
-$swm-app-warn:           mat-palette($mat-yellow, 600);
-
-$swm-app-theme:          mat-light-theme($swm-app-primary, $swm-app-accent, $swm-app-warn);
-@include                 angular-material-theme($swm-app-theme);
+$swm-app-primary: mat-palette($mat-deep-purple, 700);
+$swm-app-accent: mat-palette($mat-amber, 500);
+$swm-app-warn: mat-palette($mat-pink, 500, 700);
+$swm-app-theme: mat-light-theme($swm-app-primary, $swm-app-accent, $swm-app-warn);
 
 
 $swm-base-typography: mat-typography-config(
-  $font-family: 'Titillium Web, Open Sans, monospace'
+  $font-family: '"Open Sans", monospace'
 );
 
-@include mat-base-typography($swm-base-typography);
+$swm-heading-typography: mat-typography-config(
+  $font-family: '"Titillium Web", serif',
+  $headline: mat-typography-level(24px, 32px, 400)
+);
 
 @include mat-core($swm-base-typography);
+@include angular-material-theme($swm-app-theme);
+
+.mat-h1, .mat-h2, .mat-headline, h1, h2, h3 {
+  font-family: mat-font-family($swm-heading-typography);
+  font-weight: 400;
+  font-style: italic;
+}
+
