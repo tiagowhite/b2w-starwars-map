@@ -15,10 +15,15 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   DateAdapter,
-  MatToolbarModule, MatDividerModule, MatListModule,
+  MatToolbarModule,
+  MatDividerModule,
+  MatListModule,
+  MatGridListModule,
+
 } from '@angular/material';
 import {MaterialDateAdapter, MY_FORMATS} from './material-date-adapter';
 import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -38,7 +43,9 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
   exports: [
     MatButtonModule,
@@ -57,7 +64,9 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
     MatMenuModule,
     MatToolbarModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    FlexLayoutModule
   ],
   providers: [
     {provide: DateAdapter, useClass: MaterialDateAdapter, deps: [MAT_DATE_LOCALE]},

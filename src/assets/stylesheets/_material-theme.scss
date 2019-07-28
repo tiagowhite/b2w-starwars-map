@@ -17,10 +17,13 @@ $swm-heading-typography: mat-typography-config(
   $headline: mat-typography-level(24px, 32px, 400)
 );
 
+body {
+  font-family: mat-font-family($swm-base-typography);
+}
 .mat-h1, .mat-h2, .mat-headline, h1, h2, h3 {
   font-family: mat-font-family($swm-heading-typography);
   font-weight: 400;
   font-style: italic;
 }
-@include mat-core($swm-base-typography);
+@include angular-material-typography($swm-base-typography);
 @include angular-material-theme($swm-app-theme);
