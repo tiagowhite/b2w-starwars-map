@@ -1,4 +1,27 @@
+
 .content-wrapper {
-  min-height: 100%;
+  padding: 10px;
+  margin: 10px;
   overflow: hidden;
 }
+
+.planet {
+  max-width: 100%;
+  width: 400px;
+  .mat-card-avatar {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-card-title > h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .planet-detail {
+    .planet-props {
+      strong::after { content: ": "}
+    }
+  }
+
+}
+

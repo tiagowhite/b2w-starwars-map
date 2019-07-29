@@ -15,23 +15,16 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-
     <mat-toolbar color="primary">
       <mat-toolbar-row>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        <button mat-icon-button aria-label="Menu"><mat-icon>menu</mat-icon></button>
       </mat-toolbar-row>
     </mat-toolbar>
-
-
-    <div fxLayout="row" fxLayoutAlign="center">
-
+    <div class="content-wrapper" fxLayout="row" fxLayoutAlign="center center">
+      <app-planets></app-planets>
+      <router-outlet></router-outlet>
     </div>
 
-
-
-
-
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
