@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+
+.planet {
+  max-width: 100%;
+  width: 400px;
+
+  .mat-card-avatar {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-card-title > h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+  .planet-detail {
+    .planet-props {
+      margin-bottom: 30px;
+
+      h4 {
+        padding: 5px;
+        border-bottom: 1px solid mat-color($mat-deep-purple, 600);
+        color: mat-color($mat-yellow, 50);
+      }
+
+      strong::after {
+        content: ": "
+      }
+
+      strong {
+        flex-basis: 20%;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+
+      .planet-prop-line {
+        display: flex;
+        margin: 0 20px 10px;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding-inline-start: 0;
+          list-style-type: none;
+
+          li {
+            display: flex;
+            margin-bottom: 20px;
+            strong {
+              margin-left: 10px;
+              position: relative;
+              bottom: 6px;
+            }
+
+            strong::after {
+              content: "";
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
