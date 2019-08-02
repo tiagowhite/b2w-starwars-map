@@ -4,10 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
 import { MaterialModule } from './material.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,8 +20,11 @@ import { MaterialModule } from './material.module';
   exports: [
     RouterModule,
     HttpClientModule,
-    MaterialModule
-    ]
+    MaterialModule,
+    HeaderComponent,
+    FooterComponent,
+    NavigationComponent
+  ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

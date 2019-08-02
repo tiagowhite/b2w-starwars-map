@@ -1,33 +1,15 @@
-<mat-sidenav-container fullscreen>
+<mat-sidenav-container fxLayout="column" fxFlexFill>
   <mat-sidenav mode="side" opened>
-    <h2>B2W Star Wars Map</h2>
-    <mat-divider></mat-divider>
-
-    <! -- nav -->
-    <mat-nav-list dense>
-      <mat-list-item>
-        <a href="#">Planetas</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a href="https://github.com/tiagowhite/b2w-starwars-map">Sobre</a>
-      </mat-list-item>
-    </mat-nav-list>
+    <app-navigation></app-navigation>
   </mat-sidenav>
-
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <button mat-icon-button aria-label="Menu"><mat-icon>menu</mat-icon></button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
-    <div class="content-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <app-header></app-header>
+    <div class="content-wrapper">
       <app-planets></app-planets>
       <router-outlet></router-outlet>
     </div>
-
+    <app-footer fxLayout="row" fxLayoutAlign="center"></app-footer>
   </mat-sidenav-content>
-
 </mat-sidenav-container>
 
 

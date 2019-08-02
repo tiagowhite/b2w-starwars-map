@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 import { PlanetsComponent } from './planets/planets.component';
+import { PlanetListComponent } from './planets/planet-list/planet-list.component';
+import { PlanetItemComponent } from './planets/planet-item/planet-item.component';
+import { PlanetDetailComponent } from './planets/planet-detail/planet-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetsComponent
+    PlanetsComponent,
+    PlanetListComponent,
+    PlanetItemComponent,
+    PlanetDetailComponent
   ],
   imports: [
     CoreModule,

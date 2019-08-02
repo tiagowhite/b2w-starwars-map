@@ -1,0 +1,42 @@
+@import '~src/assets/stylesheets/vars';
+
+footer {
+  width: auto;
+  height: 50px;
+  margin: 0 auto;
+  flex-shrink: 0;
+
+  p {
+    text-align: center
+  }
+
+  ul, li {
+    text-decoration: none;
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul > li {
+    margin-right: 1em;
+  }
+
+  ul > li:last-child {
+    margin-right: 0;
+  }
+
+  ul > li > a > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  ul > li > a > svg > path {
+    fill: $swm-pink;
+  }
+
+  ul > li > a:hover > svg > path {
+    fill: $swm-dark-purple;
+    transition: color .35s ease;
+  }
+}
