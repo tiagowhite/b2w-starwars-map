@@ -1,4 +1,5 @@
 export interface Planet {
+  url: 'https://swapi.co/api/planets/';
   name: string;
   rotation_period: number;
   orbital_period: number;
