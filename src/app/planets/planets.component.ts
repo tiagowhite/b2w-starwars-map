@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PlanetService} from './planet.service';
-import {Planets} from './planets';
+import {Planet} from './planet';
 
 @Component({
   selector: 'app-planets',
@@ -9,7 +9,7 @@ import {Planets} from './planets';
 })
 export class PlanetsComponent implements OnInit {
 
-  private planets: Planets;
+  planetList: Array<Planet>;
 
   constructor(private planetService: PlanetService) {
   }
@@ -19,9 +19,9 @@ export class PlanetsComponent implements OnInit {
   }
 
   private loadPlanets() {
-    this.planetService.getPlanets<Planets>().subscribe(
-      (planets: Planets) => {
-        this.planets = planets;
+    this.planetService.getPlanets<Array<Planet>>().subscribe(
+      (planets: Array<Planet>) => {
+        this.planetList = planets;
       }
     );
   }

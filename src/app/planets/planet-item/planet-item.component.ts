@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Planets} from '../planets';
+import {Planet} from '../planet';
 
 @Component({
   selector: 'app-planet-item',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() planetList: Array<Planet>;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
