@@ -3,10 +3,11 @@ import {map, switchMap, withLatestFrom} from 'rxjs/operators';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {select, Store} from '@ngrx/store';
 import {of} from 'rxjs';
-import {GetPlanet, GetPlanetSuccess, PlanetActionsEnum} from '../actions/planet.actions';
+import {GetPlanet, GetPlanets, GetPlanetsSuccess, GetPlanetSuccess, PlanetActionsEnum} from '../actions/planet.actions';
 import {AppState} from '../state/app.state';
 import {PlanetService} from '../../../planets/planet.service';
 import {selectPlanetList} from '../selectors/planet.selector';
+import {Planets} from '../../../planets/planets';
 
 @Injectable()
 export class PlanetEffect {
@@ -20,6 +21,14 @@ export class PlanetEffect {
       return of(new GetPlanetSuccess(selectedPlanet));
     })
   );
+
+  @Effect()
+  getPlanets = this.actions.pipe(
+    ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
+    switchMap(() => this.planetService.getPlanets()),
+    switchMap((planetList: Planets) => of(new GetPlanetsSuccess(planetList.planets)))
+  );
+
 
   constructor(
     private planetService: PlanetService,
