@@ -22,9 +22,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
-    PlanetsComponent,
-    PlanetItemComponent,
-    PlanetDetailComponent
   ],
   imports: [
     CoreModule,

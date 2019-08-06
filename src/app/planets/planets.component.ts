@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {PlanetService} from './planet.service';
 import {Planets} from './planets';
+import {selectPlanetList} from '../core/store/selectors/planet.selector';
+import {AppState} from '../core/store/state/app.state';
+import {select, Store} from '@ngrx/store';
+import {GetPlanets} from '../core/store/actions/planet.actions';
 
 @Component({
   selector: 'app-planets',
@@ -9,20 +13,14 @@ import {Planets} from './planets';
 })
 export class PlanetsComponent implements OnInit {
 
-  planetList: Planets;
+  planetList = this.store.pipe(select(selectPlanetList));
 
-  constructor(private planetService: PlanetService) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit() {
-    this.loadPlanets();
+    this.store.dispatch(new GetPlanets());
   }
 
-  loadPlanets() {
-    this.planetService.getPlanets<Planets>().subscribe(
-      (planets: Planets) => {
-        this.planetList = planets;
-      }
-    );
-  }
+
 }

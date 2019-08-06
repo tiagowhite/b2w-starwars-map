@@ -9,7 +9,7 @@ import {Planet} from '../planet';
 })
 export class PlanetItemComponent implements OnInit {
 
-  @Input() planetList: Array<Planet>;
+  @Input() planetList: Planet[];
 
   constructor() {
   }
