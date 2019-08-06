@@ -8,7 +8,7 @@ import {Config} from '../models/config';
   providedIn: 'root'
 })
 export class ConfigService {
-  configUrl = `${environment.apiUrl}config.json`;
+  configUrl = `${environment.mockApi}config.json`;
 
   constructor(private http: HttpClient) { }
 

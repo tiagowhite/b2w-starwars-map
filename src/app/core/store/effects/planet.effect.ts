@@ -1,13 +1,13 @@
-import {Injectable} from '@angular/core';
-import {map, switchMap, withLatestFrom} from 'rxjs/operators';
-import {Actions, Effect, ofType} from '@ngrx/effects';
-import {select, Store} from '@ngrx/store';
-import {of} from 'rxjs';
-import {GetPlanet, GetPlanets, GetPlanetsSuccess, GetPlanetSuccess, PlanetActionsEnum} from '../actions/planet.actions';
-import {AppState} from '../state/app.state';
-import {PlanetService} from '../../../planets/planet.service';
-import {selectPlanetList} from '../selectors/planet.selector';
-import {Planets} from '../../../planets/planets';
+import { Injectable } from '@angular/core';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import { GetPlanet, GetPlanets, GetPlanetsSuccess, GetPlanetSuccess, PlanetActionsEnum } from '../actions/planet.actions';
+import { AppState } from '../state/app.state';
+import { PlanetService } from '../../../planets/planet.service';
+import { selectPlanetList } from '../selectors/planet.selector';
+import { Planets } from '../../../planets/planets';
 
 @Injectable()
 export class PlanetEffect {
@@ -25,8 +25,8 @@ export class PlanetEffect {
   @Effect()
   getPlanets = this.actions.pipe(
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
-    switchMap(() => this.planetService.getPlanets()),
-    switchMap((planetList: Planets) => of(new GetPlanetsSuccess(planetList.planets)))
+    switchMap(() => this.planetService.getPlanets<Planets>()),
+    switchMap((planetList: Planets) => of(new GetPlanetsSuccess(planetList.results)))
   );
 
 

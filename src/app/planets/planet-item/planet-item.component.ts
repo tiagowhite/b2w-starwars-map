@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Planets} from '../planets';
-import {Planet} from '../planet';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Planets } from '../planets';
+import { Planet } from '../planet';
+import { log } from 'util';
 
 @Component({
   selector: 'app-planet-item',
@@ -10,11 +11,17 @@ import {Planet} from '../planet';
 export class PlanetItemComponent implements OnInit {
 
   @Input() planetList: Planet[];
+  @Output() planetSelected: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
+
   }
 
   ngOnInit() {
+  }
+
+  selectedPlanetHandler(id: number) {
+    this.planetSelected.emit(id);
   }
 
 }

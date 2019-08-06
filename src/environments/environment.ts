@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4200/assets/data/'
+  mockApi: 'http://localhost:4200/assets/data/',
+  swapi: 'https://swapi.co/api/'
 };
 
 /*
