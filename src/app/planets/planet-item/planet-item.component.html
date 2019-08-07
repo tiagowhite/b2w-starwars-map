@@ -1,3 +1,7 @@
-<ng-container *ngFor="let planet of planetList">
-  {{planet.name}}
-</ng-container>
+<div fxLayout="row wrap">
+  <ng-container *ngFor="let planet of planetList">
+    <mat-card>
+      <mat-card-title>{{ planet.name }}</mat-card-title>
+    </mat-card>
+  </ng-container>
+</div>
