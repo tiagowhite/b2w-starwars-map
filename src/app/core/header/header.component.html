@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button aria-label="Menu" (click)="sidenav.toggle()" ><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button aria-label="Menu" (click)="sidenav.toggle()" *ngIf="!opened"><mat-icon>menu</mat-icon></button>
     <h2 class="logo">B2W Star Wars Map</h2>
   </mat-toolbar-row>
 </mat-toolbar>
