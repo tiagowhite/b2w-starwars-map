@@ -1,14 +1,13 @@
 <app-header [sidenav]="sidenav"></app-header>
-<mat-sidenav-container fxLayout="column" fxFlexFill>
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened">
     <app-navigation></app-navigation>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content-wrapper">
       <router-outlet></router-outlet>
     </div>
-    <app-footer fxLayout="column" fxLayoutAlign="center"></app-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
+<app-footer></app-footer>
 

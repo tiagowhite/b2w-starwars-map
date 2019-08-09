@@ -1,11 +1,15 @@
+
 @import '~src/assets/stylesheets/vars';
 
+
 footer {
-  width: auto;
+  width: 100%;
   height: 50px;
   margin: 0 auto;
-  flex-shrink: 0;
-
+  display: flex;
+  justify-content: center;
+  background-color: $footer-color;
+  > div { margin-top: 10px; padding-top: 10px;}
   p {
     text-align: center
   }
