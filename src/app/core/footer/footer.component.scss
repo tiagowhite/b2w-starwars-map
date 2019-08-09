@@ -1,14 +1,10 @@
 @import '~src/assets/stylesheets/vars';
 
 footer {
-  width: auto;
-  height: 50px;
-  margin: 0 auto;
-  flex-shrink: 0;
-
-  p {
-    text-align: center
-  }
+  padding: 12px;
+  font-size: 12px;
+  margin-top: 40px;
+  background-color: $footer-color;
 
   ul, li {
     text-decoration: none;

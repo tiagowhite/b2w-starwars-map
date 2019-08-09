@@ -8,7 +8,7 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy {
-  opened = true;
+  opened = false;
   over = 'side';
   /*expandHeight = '42px';
   collapseHeight = '42px';
