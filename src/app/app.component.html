@@ -1,9 +1,9 @@
 <app-header [sidenav]="sidenav"></app-header>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened">
+<mat-sidenav-container fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-sidenav #sidenav mode="{{over}}" [(opened)]="opened">
     <app-navigation></app-navigation>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content fxLayout="row">
     <div class="content-wrapper">
       <router-outlet></router-outlet>
     </div>
