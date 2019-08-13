@@ -1,9 +1,11 @@
 @import '~src/assets/stylesheets/vars';
 
 footer {
+  background-color: transparent !important;
   padding: 12px;
   font-size: 12px;
-  background-color: $footer-color;
+  display: flex;
+  justify-content: center;
 
   ul, li {
     text-decoration: none;
