@@ -18,7 +18,7 @@ export class PlanetService {
     return this.http.get<T>(this.planetUrl);
   }
 
-  public test<T>(page: number): Observable<T> {
+  public test<T>(page?: number | 1): Observable<T> {
     return this.http.get<T>(`${this.testUrl}${page}`);
   }
 
