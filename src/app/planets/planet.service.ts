@@ -18,8 +18,8 @@ export class PlanetService {
     return this.http.get<T>(this.planetUrl);
   }
 
-  public test<T>(): Observable<T> {
-    return this.http.get<T>(this.testUrl);
+  public test<T>(page: number): Observable<T> {
+    return this.http.get<T>(`${this.testUrl}${page}`);
   }
 
 }

@@ -15,7 +15,7 @@ import { log } from 'util';
 export class PlanetsComponent implements OnInit {
 
   planetList = this.store.pipe(select(selectPlanetList));
-  test: { orbital_period: number; surface_water: number; diameter: number; gravity: string; name: string; residents: []; climate: string; id: number; rotation_period: number; terrain: string; url: "https://swapi.co/api/planets/"; population: number }[];
+  testList: Planets;
 
   constructor(private store: Store<AppState>, private planetService: PlanetService) {
   }
@@ -26,12 +26,35 @@ export class PlanetsComponent implements OnInit {
   }
 
 
-  private runTest() {
-    this.planetService.test<Planets>().subscribe(
-      (test: Planets) => {
-        this.test = test.results.map((obj, index) => ({...obj, id: index }));
-        log(this.test);
+  private async runTest() {
+    let totalResults: Planets;
+    /*
+    async getConditionalDataUsingAsync() {
+    let data = await this.httpClient.get<Employee>(this.url).toPromise();
+    if (data.id > 5) {
+      let anotherUrl = 'http://dummy.restapiexample.com/api/v1/employee/23';
+      this.conditionalAsyncResult = await this.httpClient.get<Employee>(anotherUrl).toPromise();
+    }
+    console.log('No issues, I will wait until promise is resolved..');
+  }*/
+
+    totalResults = await this.planetService.test<Planets>(1).toPromise();
+    const range = Array.from(Array(7).keys());
+    for (const page of range) {
+      if (page > 0) {
+        totalResults = await this.planetService.test<Planets>(page).toPromise().then(
+          log(totalResults.results)
+        );
       }
-    );
+
+    }
+    /*this.planetService.test<Planets>(1).subscribe(
+      (test: Planets) => {
+        this.testList = test.results.map((obj, index) => ({...obj, id: index }));
+        log(this.test);
+        this.testList = test;
+        log(this.testList);
+      }
+    );*/
   }
 }
