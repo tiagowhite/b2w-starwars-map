@@ -18,7 +18,6 @@ import { debug, log } from 'util';
 export class PlanetsComponent implements OnInit {
 
   planetList = this.store.pipe(select(selectPlanetList));
-  protected testList: Planets = [];
   protected tempList: Array<Planet>;
 
   constructor(private store: Store<AppState>, private planetService: PlanetService) {
@@ -31,15 +30,12 @@ export class PlanetsComponent implements OnInit {
 
 
   private runTest() {
-    const range = Array.from(Array(8).keys());
-    for (const page of range) {
-      if (page > 0) {
-        this.planetService.test<Array<Planet>>(page).subscribe(
-          (result: Array<Planet>) => {
-            this.tempList = result.results.map((obj, index) => ({...obj, id: index}));
-          }
-        );
+    this.planetService.test<Array<Planet>>().then(
+      (result: Array<Planet>) => {
+        this.tempList = result;
+        // log(this.tempList);
       }
-    }
+    );
   }
+
 }

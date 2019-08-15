@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { log } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,27 @@ export class PlanetService {
     return this.http.get<T>(this.planetUrl);
   }
 
-  public test<T>(page?: number | 1): Observable<T> {
-    return this.http.get<T>(`${this.testUrl}${page}`);
+  public async test<T>(): Promise<Observable<T> | any> {
+    const range = Array.from(Array(8).keys());
+    for (const page of range) {
+      if (page > 0) {
+        await this.http.get<T>(`${this.testUrl}${page}`).toPromise()
+          .then((res: any) => {
+            const data = res.results;
+            const filter = Array.from(new Set(data.map(planet => planet.terrain)))
+              .map(terrain => {
+                return {
+                  terrain,
+                  name: data.find(name => name.terrain === terrain).name
+                };
+              });
+            log(filter);
+            // return data.map((obj, index) => ({...obj, id: index + page}));
+          }).catch(
+            catchError((error: any) => throwError(error))
+          );
+      }
+    }
   }
-
 }
+
