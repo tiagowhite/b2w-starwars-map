@@ -30,7 +30,7 @@ export class PlanetsComponent implements OnInit {
 
 
   private runTest() {
-    this.planetService.test<Array<Planet>>().then(
+    this.planetService.asyncTest<Array<Planet>>().then(
       (result: Array<Planet>) => {
         this.tempList = result;
         // log(this.tempList);

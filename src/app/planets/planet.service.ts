@@ -19,7 +19,7 @@ export class PlanetService {
     return this.http.get<T>(this.planetUrl);
   }
 
-  public async test<T>(): Promise<Observable<T> | any> {
+  public async asyncTest<T>(): Promise<T | any> {
     const range = Array.from(Array(8).keys());
     for (const page of range) {
       if (page > 0) {
@@ -29,8 +29,8 @@ export class PlanetService {
             const filter = Array.from(new Set(data.map(planet => planet.terrain)))
               .map(terrain => {
                 return {
-                  terrain,
-                  name: data.find(name => name.terrain === terrain).name
+                  name: data.find(name => name.terrain === terrain).name,
+                  terrain
                 };
               });
             log(filter);
