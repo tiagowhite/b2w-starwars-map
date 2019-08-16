@@ -18,7 +18,7 @@ import { debug, log } from 'util';
 export class PlanetsComponent implements OnInit {
 
   planetList = this.store.pipe(select(selectPlanetList));
-  protected tempList: Array<Planet>;
+  protected tempList = [];
 
   constructor(private store: Store<AppState>, private planetService: PlanetService) {
   }
@@ -30,11 +30,8 @@ export class PlanetsComponent implements OnInit {
 
 
   private runTest() {
-    this.planetService.asyncTest<Array<Planet>>().then(
-      (result: Array<Planet>) => {
-        this.tempList = result;
-        // log(this.tempList);
-      }
+    this.planetService.test<Array<any>>().subscribe(
+      (data: []) => { log(data)}
     );
   }
 

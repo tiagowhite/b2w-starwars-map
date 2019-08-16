@@ -1,0 +1,234 @@
+[
+  {
+    "name": "Alderaan",
+    "terrain": "grasslands, mountains"
+  },
+  {
+    "name": "Yavin IV",
+    "terrain": "jungle, rainforests"
+  },
+  {
+    "name": "Hoth",
+    "terrain": "tundra, ice caves, mountain ranges"
+  },
+  {
+    "name": "Dagobah",
+    "terrain": "swamp, jungles"
+  },
+  {
+    "name": "Bespin",
+    "terrain": "gas giant"
+  },
+  {
+    "name": "Endor",
+    "terrain": "forests, mountains, lakes"
+  },
+  {
+    "name": "Naboo",
+    "terrain": "grassy hills, swamps, forests, mountains"
+  },
+  {
+    "name": "Coruscant",
+    "terrain": "cityscape, mountains"
+  },
+  {
+    "name": "Kamino",
+    "terrain": "ocean"
+  },
+  {
+    "name": "Geonosis",
+    "terrain": "rock, desert, mountain, barren"
+  },
+  {
+    "name": "Utapau",
+    "terrain": "scrublands, savanna, canyons, sinkholes"
+  },
+  {
+    "name": "Mustafar",
+    "terrain": "volcanoes, lava rivers, mountains, caves"
+  },
+  {
+    "name": "Kashyyyk",
+    "terrain": "jungle, forests, lakes, rivers"
+  },
+  {
+    "name": "Polis Massa",
+    "terrain": "airless asteroid"
+  },
+  {
+    "name": "Mygeeto",
+    "terrain": "glaciers, mountains, ice canyons"
+  },
+  {
+    "name": "Felucia",
+    "terrain": "fungus forests"
+  },
+  {
+    "name": "Cato Neimoidia",
+    "terrain": "mountains, fields, forests, rock arches"
+  },
+  {
+    "name": "Saleucami",
+    "terrain": "caves, desert, mountains, volcanoes"
+  },
+  {
+    "name": "Stewjon",
+    "terrain": "grass"
+  },
+  {
+    "name": "Eriadu",
+    "terrain": "cityscape"
+  },
+  {
+    "name": "Corellia",
+    "terrain": "plains, urban, hills, forests"
+  },
+  {
+    "name": "Rodia",
+    "terrain": "jungles, oceans, urban, swamps"
+  },
+  {
+    "name": "Nal Hutta",
+    "terrain": "urban, oceans, swamps, bogs"
+  },
+  {
+    "name": "Dantooine",
+    "terrain": "oceans, savannas, mountains, grasslands"
+  },
+  {
+    "name": "Bestine IV",
+    "terrain": "rocky islands, oceans"
+  },
+  {
+    "name": "Ord Mantell",
+    "terrain": "plains, seas, mesas"
+  },
+  {
+    "name": "unknown",
+    "terrain": "unknown"
+  },
+  {
+    "name": "Trandosha",
+    "terrain": "mountains, seas, grasslands, deserts"
+  },
+  {
+    "name": "Socorro",
+    "terrain": "deserts, mountains"
+  },
+  {
+    "name": "Mon Cala",
+    "terrain": "oceans, reefs, islands"
+  },
+  {
+    "name": "Chandrila",
+    "terrain": "plains, forests"
+  },
+  {
+    "name": "Sullust",
+    "terrain": "mountains, volcanoes, rocky deserts"
+  },
+  {
+    "name": "Toydaria",
+    "terrain": "swamps, lakes"
+  },
+  {
+    "name": "Malastare",
+    "terrain": "swamps, deserts, jungles, mountains"
+  },
+  {
+    "name": "Dathomir",
+    "terrain": "forests, deserts, savannas"
+  },
+  {
+    "name": "Ryloth",
+    "terrain": "mountains, valleys, deserts, tundra"
+  },
+  {
+    "name": "Aleen Minor",
+    "terrain": "unknown"
+  },
+  {
+    "name": "Vulpter",
+    "terrain": "urban, barren"
+  },
+  {
+    "name": "Troiken",
+    "terrain": "desert, tundra, rainforests, mountains"
+  },
+  {
+    "name": "Tund",
+    "terrain": "barren, ash"
+  },
+  {
+    "name": "Haruun Kal",
+    "terrain": "toxic cloudsea, plateaus, volcanoes"
+  },
+  {
+    "name": "Cerea",
+    "terrain": "verdant"
+  },
+  {
+    "name": "Glee Anselm",
+    "terrain": "lakes, islands, swamps, seas"
+  },
+  {
+    "name": "Iridonia",
+    "terrain": "rocky canyons, acid pools"
+  },
+  {
+    "name": "Tholoth",
+    "terrain": "unknown"
+  },
+  {
+    "name": "Iktotch",
+    "terrain": "rocky"
+  },
+  {
+    "name": "Champala",
+    "terrain": "oceans, rainforests, plateaus"
+  },
+  {
+    "name": "Mirial",
+    "terrain": "deserts"
+  },
+  {
+    "name": "Serenno",
+    "terrain": "rainforests, rivers, mountains"
+  },
+  {
+    "name": "Concord Dawn",
+    "terrain": "jungles, forests, deserts"
+  },
+  {
+    "name": "Zolan",
+    "terrain": "unknown"
+  },
+  {
+    "name": "Ojom",
+    "terrain": "oceans, glaciers"
+  },
+  {
+    "name": "Skako",
+    "terrain": "urban, vines"
+  },
+  {
+    "name": "Muunilinst",
+    "terrain": "plains, forests, hills, mountains"
+  },
+  {
+    "name": "Shili",
+    "terrain": "cities, savannahs, seas, plains"
+  },
+  {
+    "name": "Kalee",
+    "terrain": "rainforests, cliffs, canyons, seas"
+  },
+  {
+    "name": "Tatooine",
+    "terrain": "desert"
+  },
+  {
+    "name": "Jakku",
+    "terrain": "deserts"
+  }
+]
