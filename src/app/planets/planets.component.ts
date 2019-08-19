@@ -31,7 +31,9 @@ export class PlanetsComponent implements OnInit {
 
   private runTest() {
     this.planetService.test<Array<any>>().subscribe(
-      (data: []) => { log(data)}
+      (data: []) => {
+        log(data);
+      }
     );
   }
 
