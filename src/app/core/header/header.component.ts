@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() sidenav: any;
+  @Input() drawer: any;
 
   constructor() {
   }

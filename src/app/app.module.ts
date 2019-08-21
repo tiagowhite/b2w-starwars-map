@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
-import { PlanetsComponent } from './planets/planets.component';
-import { PlanetItemComponent } from './planets/planet-item/planet-item.component';
-import { PlanetDetailComponent } from './planets/planet-detail/planet-detail.component';
 import { PlanetService } from './planets/planet.service';
 import {HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
@@ -18,10 +15,18 @@ import { ConfigEffect } from './core/store/effects/config.effect';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { TestNavComponent } from './test-nav/test-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TestNavComponent
   ],
   imports: [
     CoreModule,
@@ -32,7 +37,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [PlanetService],
   bootstrap: [AppComponent]
