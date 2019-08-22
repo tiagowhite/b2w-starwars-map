@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
   <button
+    type="button"
+    aria-label="Toggle sidenav"
     mat-icon-button
-    aria-label="Toggle drawer"
-    (click)="drawer.toggle()"
-    *ngIf="isHandset$ | async">
-    <mat-icon>menu</mat-icon>
+    (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <h2 class="logo">B2W Star Wars Map</h2>
 </mat-toolbar>

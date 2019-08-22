@@ -25,16 +25,15 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit() {
     /*this.store.dispatch(new GetPlanets());*/
-    this.runTest();
   }
 
 
-  private runTest() {
+  /*private runTest() {
     this.planetService.test<Array<any>>().subscribe(
       (data: []) => {
         log(data);
       }
     );
-  }
+  }*/
 
 }

@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CoreModule} from './core/core.module';
+import { CoreModule } from './core/core.module';
 import { PlanetService } from './planets/planet.service';
-import {HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './core/store/reducers/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
@@ -21,12 +21,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { TestNavComponent } from './test-nav/test-nav.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestNavComponent
+    NavComponent
   ],
   imports: [
     CoreModule,
@@ -34,7 +34,7 @@ import { TestNavComponent } from './test-nav/test-nav.component';
     HttpClientModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([PlanetEffect, ConfigEffect]),
-    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -48,4 +48,5 @@ import { TestNavComponent } from './test-nav/test-nav.component';
   providers: [PlanetService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
