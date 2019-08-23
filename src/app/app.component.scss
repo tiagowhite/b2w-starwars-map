@@ -5,37 +5,26 @@ app-header {
   right: 0;
   z-index: 2;
 }
+
 mat-sidenav-container {
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
+  flex: 1 0 auto;
 }
+
 mat-sidenav {
   width: 200px;
 }
 
 .content-wrapper {
   display: flex;
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
   overflow: hidden;
 }
 
-/*
-.sidenav-container {
-  height: 100%;
+app-footer {
+  flex-shrink: 0;
+  > footer {
+    flex-shrink: 0;
+  }
 }
-
-.sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
- */
