@@ -4,13 +4,10 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
     <app-navigation></app-navigation>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="content-wrapper">
+  <mat-sidenav-content class="content">
       <router-outlet></router-outlet>
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<app-footer></app-footer>
+<app-footer class="footer"></app-footer>

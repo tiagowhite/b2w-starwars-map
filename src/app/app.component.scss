@@ -6,25 +6,15 @@ app-header {
   z-index: 2;
 }
 
-mat-sidenav-container {
-  flex: 1 0 auto;
-}
-
 mat-sidenav {
   width: 200px;
 }
 
-.content-wrapper {
-  display: flex;
-  flex: 1;
-  height: 100%;
-  flex-direction: column;
+.content {
+  flex: 1 0 auto;
   overflow: hidden;
 }
 
-app-footer {
+ .footer {
   flex-shrink: 0;
-  > footer {
-    flex-shrink: 0;
-  }
-}
+ }
