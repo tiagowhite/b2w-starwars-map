@@ -328,11 +328,6 @@
   resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-8.1.0.tgz#b720be01c5d3a7250f33429767c6ae792a2b8de7"
   integrity sha512-1xqZR728Jev2bjV/KDxFCT+B1aGhbIWbn3yeAm/gPyDGaJAmaQlBdE6M8Yxjsr3kCffwyPv8jtD3ekdY47l2VA==
 
-"@ngrx/store@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-8.1.0.tgz#2ef648c591b2a56529a40ab3081327c49fb8ca93"
-  integrity sha512-1Pfe8uLoEjfLyXpX2UoqeSzYz4yPhsTlMVHIP7EybLD9YC/IrhecnCMmBCkNpJDRBQYqmJPbfUBrp8/q9wcB6g==
-
 "@ngtools/webpack@8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-8.1.2.tgz#5f96371d51a7f338a29990916b5b77f55bbf1ca6"
