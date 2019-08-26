@@ -16,6 +16,12 @@ import { PlanetEffect } from './core/store/effects/planet.effect';
 import { ConfigEffect } from './core/store/effects/config.effect';
 import { appReducers } from './core/store/reducers/app.reducers';
 import { environment } from '../environments/environment';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([PlanetEffect, ConfigEffect]),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [PlanetService],
   bootstrap: [AppComponent]

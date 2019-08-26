@@ -1,4 +1,7 @@
+@import '~@angular/material/theming';
+@include mat-core();
 
+$material-footer-color: #fafafa;
 $footer-color:          #512da8;
 /* Color */
 $swm-pink:              rgba(216, 36, 84, 1);

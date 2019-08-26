@@ -1,16 +1,14 @@
-<app-header [drawer]="drawer"></app-header>
-<mat-sidenav-container>
+<mat-sidenav-container class="container" [hasBackdrop]="false">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [mode]="(isHandset$ | async) ? 'push' : 'side'"
+               hasBackdrop = false
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
     <app-navigation></app-navigation>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
+    <app-header [drawer]="drawer"></app-header>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <app-footer></app-footer>
