@@ -1,5 +1,5 @@
-import {initialPlanetState, PlanetState} from '../state/planet.state';
-import {PlanetActions, PlanetActionsEnum} from '../actions/planet.actions';
+import { initialPlanetState, PlanetState } from '../state/planet.state';
+import { PlanetActions, PlanetActionsEnum } from '../actions/planet.actions';
 
 export const planetReducer = (
   state = initialPlanetState,

@@ -1,5 +1,5 @@
-import {Action} from '@ngrx/store';
-import {Config} from '../../models/config';
+import { Action } from '@ngrx/store';
+import { Config } from '../../models/config';
 
 export enum ConfigActionsEnum {
   GetConfig = '[Config] Get Config',
@@ -12,6 +12,7 @@ export class GetConfig implements Action {
 
 export class GetConfigSuccess implements Action {
   public readonly type = ConfigActionsEnum.GetConfigSuccess;
+
   constructor(public payload: Config) {
   }
 }

@@ -14,7 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { PlanetEffect } from './core/store/effects/planet.effect';
 import { ConfigEffect } from './core/store/effects/config.effect';
-import { appReducers } from './core/store/reducers/app.reducers';
+import { appReducer } from './core/store/reducers/app.reducer';
 import { environment } from '../environments/environment';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,16 +34,16 @@ import { MatListModule } from '@angular/material/list';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([PlanetEffect, ConfigEffect]),
-    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([PlanetEffect, ConfigEffect]),
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [PlanetService],
   bootstrap: [AppComponent]

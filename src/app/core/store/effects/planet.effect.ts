@@ -8,6 +8,7 @@ import { AppState } from '../state/app.state';
 import { PlanetService } from '../../../planets/planet.service';
 import { selectPlanetList } from '../selectors/planet.selector';
 import { Planets } from '../../../planets/planets';
+import { StopLoading } from '../actions/ui.actions';
 
 @Injectable()
 export class PlanetEffect {
@@ -26,7 +27,10 @@ export class PlanetEffect {
   getPlanets = this.actions.pipe(
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
     switchMap(() => this.planetService.getPlanets<Planets>()),
-    switchMap((planetList: Planets) => of(new GetPlanetsSuccess(planetList.results)))
+    switchMap((planetList: Planets) => [
+      of(new GetPlanetsSuccess(planetList.results)),
+      of(new StopLoading())
+    ])
   );
 
 
@@ -34,8 +38,7 @@ export class PlanetEffect {
     private planetService: PlanetService,
     private actions: Actions,
     private store: Store<AppState>
-  ) {
-  }
+  ) {}
 
 
 }
