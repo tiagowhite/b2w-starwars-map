@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { log } from 'util';
+import { GetPlanetsSuccess } from '../core/store/actions/planet.actions';
+import { StopLoading } from '../core/store/actions/ui.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -18,21 +20,5 @@ export class PlanetService {
   public getPlanets<T>(): Observable<T> {
     return this.http.get<T>(this.planetUrl);
   }
-
-  public test<T>(): Observable<T> | any {
-    return this.http.get<T>(this.testUrl)
-      .pipe(
-        map((res: any) => {
-          const filter = [...new Set(res.map(x => x.terrain))];
-          const split = [].concat(...filter.map(
-            value => value.toString().replace(/\s+/g, '').split(',')
-          ));
-          const unique = [...new Set(split)];
-          log(unique);
-        }),
-        catchError((error: any) => throwError(error))
-      );
-  }
-
 }
 

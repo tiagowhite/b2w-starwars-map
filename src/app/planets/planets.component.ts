@@ -11,6 +11,7 @@ import { GetPlanets } from '../core/store/actions/planet.actions';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
+
   planetList$ = this.store.pipe(select(selectPlanetList));
 
   constructor(private store: Store<AppState>) {

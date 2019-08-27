@@ -14,7 +14,7 @@ import { getUiState } from './core/store/selectors/ui.selector';
 })
 export class AppComponent implements OnInit {
 
-  isLoading$ = this.store.pipe(select(getUiState));
+  loading: Observable<boolean>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -25,11 +25,10 @@ export class AppComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private store: Store<AppState>
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
-    this.store.dispatch(new StartLoading());
+    this.loading = this.store.pipe(select(getUiState));
   }
 
 
