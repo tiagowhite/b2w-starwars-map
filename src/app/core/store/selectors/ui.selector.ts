@@ -4,7 +4,7 @@ import { createSelector } from '@ngrx/store';
 
 const uiState = (state: AppState) => state.ui;
 
-export const getUiState = createSelector(
+export const selectUi = createSelector(
   uiState,
   (state: UiState) => state.isLoading
 );

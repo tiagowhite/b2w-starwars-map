@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Config} from '../models/config';
+import { environment } from '../../../environments/environment';
+import { from, Observable } from 'rxjs';
+import { Config } from '../models/config';
+import { map, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
-  configUrl = `${environment.mockApi}config.json`;
+  url = environment.randomSeed;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getConfig(): Observable<Config> {
-    return this.http.get<Config>(this.configUrl);
+  getRandomSeed(): Observable<Config> {
+    return this.http.get<Config>(this.url)
+      .pipe(
+        map(data => data)
+      );
   }
 }
