@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   mockApi: 'http://localhost:4200/assets/data/',
-  swapi: 'https://swapi.co/api/',
-  randomSeed: (Math.floor(Math.random() * 61) + 1)
+  swapi: 'https://swapi.co/api/'
 };
 
 /*

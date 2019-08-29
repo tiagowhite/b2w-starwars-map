@@ -5,9 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { AppState } from './core/store/state/app.state';
 import { selectUi } from './core/store/selectors/ui.selector';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { selectConfig } from './core/store/selectors/config.selector';
 import { GetConfig } from './core/store/actions/config.actions';
-import { StartLoading } from './core/store/actions/ui.actions';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +14,7 @@ import { StartLoading } from './core/store/actions/ui.actions';
 })
 export class AppComponent implements OnInit {
 
-  config$ = this.store.pipe(select(selectConfig));
-  loading$ = this.store.pipe(select(selectUi));
+  loading$: Observable<boolean>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -25,14 +22,12 @@ export class AppComponent implements OnInit {
       share()
     );
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private store: Store<AppState>
-  ) { }
+  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {
+    this.loading$ = this.store.pipe(select(selectUi));
+  }
 
   ngOnInit() {
     this.store.dispatch(new GetConfig());
-    this.store.dispatch(new StartLoading());
   }
 
 

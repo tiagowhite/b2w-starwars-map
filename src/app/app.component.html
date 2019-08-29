@@ -1,4 +1,4 @@
-<!--<mat-progress-bar class="loading" color="accent" mode="indeterminate" *ngIf="!(loading$ | async)"></mat-progress-bar>-->
+<mat-progress-bar class="loading" color="accent" mode="indeterminate" *ngIf="!(loading$ | async)"></mat-progress-bar>
 <mat-sidenav-container class="container" [hasBackdrop]="false">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
