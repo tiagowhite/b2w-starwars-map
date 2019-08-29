@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { selectPlanetList } from '../core/store/selectors/planet.selector';
+import { isPlanetsListLoading, selectPlanetList } from '../core/store/selectors/planet.selector';
 import { AppState } from '../core/store/state/app.state';
 import { select, Store } from '@ngrx/store';
 import { GetPlanets } from '../core/store/actions/planet.actions';
-import { StartLoading } from '../core/store/actions/ui.actions';
 import { Observable } from 'rxjs';
-import { Planet } from './planet';
 
 
 @Component({
@@ -15,14 +13,15 @@ import { Planet } from './planet';
 })
 export class PlanetsComponent implements OnInit {
 
-  planetList$: Observable<Array<Planet>>;
+
+  planetList$ = this.store.select(selectPlanetList);
 
   constructor(private store: Store<AppState>) {
-    this.planetList$ = this.store.pipe(select(selectPlanetList));
+    this.store.dispatch(new GetPlanets());
   }
 
   ngOnInit() {
-    this.store.dispatch(new GetPlanets());
+
   }
 
 }

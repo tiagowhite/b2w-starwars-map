@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { AppState } from './core/store/state/app.state';
-import { selectUi } from './core/store/selectors/ui.selector';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { GetConfig } from './core/store/actions/config.actions';
+import { isPlanetsListLoading } from './core/store/selectors/planet.selector';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.loading$ = this.store.select(isPlanetsListLoading);
     this.store.dispatch(new GetConfig());
   }
 
