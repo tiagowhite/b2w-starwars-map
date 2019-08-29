@@ -5,7 +5,6 @@ import { select, Store } from '@ngrx/store';
 import { GetPlanets } from '../core/store/actions/planet.actions';
 import { StartLoading } from '../core/store/actions/ui.actions';
 import { Observable } from 'rxjs';
-import { Planets } from './planets';
 import { Planet } from './planet';
 
 
@@ -23,7 +22,6 @@ export class PlanetsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new StartLoading());
     this.store.dispatch(new GetPlanets());
   }
 

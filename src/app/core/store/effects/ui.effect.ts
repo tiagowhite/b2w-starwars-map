@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { StartLoading, StopLoading, UiActions, UiActionsEnum } from '../actions/ui.actions';
-import { Observable, of, pipe } from 'rxjs';
+import { of, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Action } from '@ngrx/store';
 
 @Injectable()
 export class UiEffect {

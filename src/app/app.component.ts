@@ -22,9 +22,7 @@ export class AppComponent implements OnInit {
       share()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {
-    this.loading$ = this.store.pipe(select(selectUi));
-  }
+  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {}
 
   ngOnInit() {
     this.store.dispatch(new GetConfig());
