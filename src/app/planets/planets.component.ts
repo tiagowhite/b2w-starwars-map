@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { isPlanetsListLoading, selectPlanetList } from '../core/store/selectors/planet.selector';
+import { selectPlanetList } from '../core/store/selectors/planet.selector';
 import { AppState } from '../core/store/state/app.state';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { GetPlanets } from '../core/store/actions/planet.actions';
-import { Observable } from 'rxjs';
 
 
 @Component({
