@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import { PlanetComponent } from './containers/planet/planet.component';
+import { PlanetsComponent } from './containers/planets/planets.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'planetList', pathMatch: 'full' },
-  { path: 'planetList', loadChildren: './planets/planets.module#PlanetsModule' }
+  { path: 'planets', component: PlanetsComponent},
+  { path: 'planet/:name/:url', component: PlanetComponent},
+  { path: '', redirectTo: '/planets', pathMatch: 'full' }
 ];
 
 @NgModule({

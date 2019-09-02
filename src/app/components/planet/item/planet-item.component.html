@@ -1,0 +1,7 @@
+<div class="planets">
+  <ng-container *ngFor="let planet of planets">
+    <mat-card (click)="navigateToPlanet(planet)">
+      <mat-card-title>{{ planet.name }}</mat-card-title>
+    </mat-card>
+  </ng-container>
+</div>

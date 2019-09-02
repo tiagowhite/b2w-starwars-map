@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import { AppState } from './core/store/state/app.state';
+import { Store, select } from '@ngrx/store';
+import { AppState } from './store/state/app.state';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { GetConfig } from './core/store/actions/config.actions';
-import { isPlanetsListLoading } from './core/store/selectors/planet.selector';
-import { PlanetService } from './planets/planet.service';
+import { isPlanetsListLoading } from './store/selectors/planet.selector';
+import { selectConfig } from './store/selectors/config.selector';
+import { Config } from './models/config';
+import { GetConfig } from './store/actions/config.actions';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { PlanetService } from './planets/planet.service';
 export class AppComponent implements OnInit {
 
   loading$: Observable<boolean>;
+  config$: Observable<Config>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -25,14 +27,14 @@ export class AppComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private store: Store<AppState>,
-    private planetService: PlanetService
-  ) { }
+    private store: Store<AppState>
+  ) {
+    this.store.dispatch(new GetConfig());
+  }
 
   ngOnInit() {
-    this.loading$ = this.store.select(isPlanetsListLoading);
-    this.store.dispatch(new GetConfig());
-    this.planetService.test<Array<any>>().subscribe();
+    this.loading$ = this.store.pipe(select(isPlanetsListLoading));
+    this.config$ = this.store.pipe(select(selectConfig));
   }
 
 

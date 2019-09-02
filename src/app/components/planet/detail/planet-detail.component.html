@@ -1,0 +1,41 @@
+<mat-card class="planet">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title><h2>{{planet.name}}</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="detail">
+      <div class="planet-props">
+        <h4>Elementos Orbitais</h4>
+        <div class="planet-prop-line"><strong>Periodo Orbital</strong><span>{{planet.orbital_period | number}}</span>
+        </div>
+        <div class="planet-prop-line"><strong>Periodo de
+          rotacao</strong><span>{{planet.rotation_period | number}}</span></div>
+      </div>
+      <div class="planet-props">
+        <h4>Caracteristicas Fisicas</h4>
+        <div class="planet-prop-line"><strong>Diametro</strong><span>{{planet.diameter | number}}</span></div>
+        <div class="planet-prop-line"><strong>Clima</strong><span>{{planet.climate}}</span></div>
+        <div class="planet-prop-line"><strong>Terreno</strong><span>{{planet.terrain}}</span></div>
+        <div class="planet-prop-line"><strong>Gravidade</strong><span>{{planet.gravity}}</span></div>
+        <div class="planet-prop-line"><strong>Populacao</strong><span>{{planet.population}}</span></div>
+      </div>
+      <div class="planet-props">
+        <h4>Residentes</h4>
+        <div class="planet-prop-line">
+          <ul>
+            <li>
+              <a href="#">
+                <mat-icon mat-list-icon>face</mat-icon>
+                <strong>Luke Skywalker</strong>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary">Randomizar</button>
+  </mat-card-actions>
+</mat-card>

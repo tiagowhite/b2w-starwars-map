@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './core/core.module';
-import { PlanetService } from './planets/planet.service';
+import { CoreModule } from './components/core.module';
+import { PlanetService } from './services/planet.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './core/material.module';
+import { MaterialModule } from './components/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,14 +22,22 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 
-import { PlanetEffect } from './core/store/effects/planet.effect';
-import { ConfigEffect } from './core/store/effects/config.effect';
-import { appReducer } from './core/store/reducers/app.reducer';
+import { PlanetEffect } from './store/effects/planet.effect';
+import { ConfigEffect } from './store/effects/config.effect';
+import { appReducer } from './store/reducers/app.reducer';
+import { PlanetsComponent } from './containers/planets/planets.component';
+import { PlanetComponent } from './containers/planet/planet.component';
+import { PlanetItemComponent } from './components/planet/item/planet-item.component';
+import { PlanetDetailComponent } from './components/planet/detail/planet-detail.component';
 
 // noinspection AngularInvalidImportedOrDeclaredSymbol
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlanetsComponent,
+    PlanetComponent,
+    PlanetItemComponent,
+    PlanetDetailComponent
   ],
   imports: [
     CoreModule,
