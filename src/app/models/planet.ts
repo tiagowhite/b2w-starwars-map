@@ -1,6 +1,9 @@
+import { Film } from './film';
+import { Resident } from './resident';
+
 export interface Planet {
   id?: number;
-  url: 'https://swapi.co/api/planets/';
+  url: string;
   name: string;
   rotation_period: number;
   orbital_period: number;
@@ -10,6 +13,6 @@ export interface Planet {
   terrain: string;
   surface_water: number;
   population: number;
-  residents?: [];
-  films?: [];
+  residents?: Array<Resident>;
+  films?: Array<Film>;
 }

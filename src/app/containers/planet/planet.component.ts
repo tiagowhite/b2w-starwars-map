@@ -18,7 +18,7 @@ export class PlanetComponent implements OnInit {
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.store.dispatch(new GetPlanet(this.route.snapshot.params.url));
+    this.store.dispatch(new GetPlanet(this.route.snapshot.params.name));
   }
 
 }

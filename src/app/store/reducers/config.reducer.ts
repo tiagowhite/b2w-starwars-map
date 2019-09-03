@@ -10,6 +10,12 @@ export const configReducer = (
         config: action.payload
       };
     }
+    case ConfigActionsEnum.GetConfigError: {
+      return {
+        ...state,
+        error: action.payload
+      };
+    }
     default:
       return state;
   }

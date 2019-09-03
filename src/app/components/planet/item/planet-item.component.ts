@@ -9,7 +9,7 @@ import { log } from 'util';
 })
 export class PlanetItemComponent implements OnInit {
 
-  @Input() planets: Planet[];
+  @Input() planets: Array<Planet>;
   @Output() planetSelected: EventEmitter<Planet> = new EventEmitter<Planet>();
 
   constructor() {}

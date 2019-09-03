@@ -13,10 +13,15 @@ export class PlanetService {
   planetUrl = `${environment.swapi}planets`;
   testUrl = `${environment.mockApi}terrain.json`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getPlanets<T>(): Observable<T> {
     return this.http.get<T>(this.planetUrl);
+  }
+
+  public getPlanet<T>(url: string): Observable<T> {
+    return this.http.get<T>(url);
   }
 
   public test<T>(): Observable<T> | any {
@@ -33,7 +38,6 @@ export class PlanetService {
         catchError((error: any) => throwError(error))
       );
   }
-
 
 
 }

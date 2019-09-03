@@ -8,7 +8,6 @@ import { AppState } from '../state/app.state';
 import { PlanetService } from '../../services/planet.service';
 import { selectPlanetList } from '../selectors/planet.selector';
 import { PlanetsHttp } from '../../models/planets-http';
-import { log } from 'util';
 
 @Injectable()
 export class PlanetEffect {
@@ -17,8 +16,8 @@ export class PlanetEffect {
     ofType<GetPlanet>(PlanetActionsEnum.GetPlanet),
     map(action => action.payload),
     withLatestFrom(this.store.pipe(select(selectPlanetList))),
-    switchMap(([url, planets]) => {
-      const selectedPlanet = planets.filter(planet => planet.url === url)[0];
+    switchMap(([name, planets]) => {
+      const selectedPlanet = planets.filter(planet => planet.name === name)[0];
       return of(new GetPlanetSuccess(selectedPlanet));
     })
   );
