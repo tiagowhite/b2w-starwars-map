@@ -4,6 +4,7 @@ import { AppState } from '../../store/state/app.state';
 import { Router } from '@angular/router';
 import { GetPlanets } from '../../store/actions/planet.actions';
 import { Store, select } from '@ngrx/store';
+import { log } from 'util';
 
 @Component({
   selector: 'app-planets',

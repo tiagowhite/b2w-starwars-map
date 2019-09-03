@@ -12,17 +12,26 @@ export const planetReducer = (
         isLoading: true
       };
     }
-    case PlanetActionsEnum.GetPlanet: {
-      return {
-        ...state,
-        isLoading: true
-      };
-    }
     case PlanetActionsEnum.GetPlanetsSuccess: {
       return {
         ...state,
         isLoading: false,
         planets: action.payload
+      };
+    }
+    case PlanetActionsEnum.GetPlanetsError: {
+      return {
+        ...state,
+        error: true,
+        errorMessage: action.payload
+      };
+    }
+    case PlanetActionsEnum.GetPlanet: {
+      return {
+        ...state,
+        isLoading: true,
+        selectedPlanet: action.payload
+
       };
     }
     case PlanetActionsEnum.GetPlanetSuccess: {
@@ -32,16 +41,11 @@ export const planetReducer = (
         selectedPlanet: action.payload
       };
     }
-    case PlanetActionsEnum.GetPlanetsError: {
-      return {
-        ...state,
-        error: true
-      };
-    }
     case PlanetActionsEnum.GetPlanetError: {
       return {
         ...state,
-        error: true
+        error: true,
+        errorMessage: action.payload
       };
     }
     default:

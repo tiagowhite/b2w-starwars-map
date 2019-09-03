@@ -23,12 +23,16 @@ export class GetPlanetsSuccess implements Action {
 
 export class GetPlanetsError implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsError;
+
+  constructor(public payload: string) {
+  }
+
 }
 
 export class GetPlanet implements Action {
   public readonly type = PlanetActionsEnum.GetPlanet;
+  constructor(public payload: string ) {}
 
-  constructor(public payload: string) {}
 }
 
 export class GetPlanetSuccess implements Action {
@@ -40,6 +44,9 @@ export class GetPlanetSuccess implements Action {
 
 export class GetPlanetError implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetError;
+
+  constructor(public payload: string) {
+  }
 }
 
 export type PlanetActions = GetPlanets | GetPlanetsSuccess | GetPlanet | GetPlanetSuccess | GetPlanetsError | GetPlanetError;
