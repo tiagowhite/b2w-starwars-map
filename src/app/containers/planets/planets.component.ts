@@ -4,7 +4,7 @@ import { AppState } from '../../store/state/app.state';
 import { Router } from '@angular/router';
 import { GetPlanets } from '../../store/actions/planet.actions';
 import { Store, select } from '@ngrx/store';
-import { log } from 'util';
+import { PlanetOverlayService } from '../../components/core/planet-overlay/planet-overlay.service';
 
 @Component({
   selector: 'app-planets',
@@ -15,7 +15,11 @@ export class PlanetsComponent implements OnInit {
 
   planets$ = this.store.pipe(select(selectPlanetList));
 
-  constructor(private store: Store<AppState>, private router: Router) {
+  constructor(
+    private store: Store<AppState>,
+    private router: Router,
+    private planetOverlay: PlanetOverlayService
+  ) {
     this.store.dispatch(new GetPlanets());
   }
 
@@ -24,7 +28,8 @@ export class PlanetsComponent implements OnInit {
 
   goToPlanet(event: any) {
     const url = encodeURI(event);
-    this.router.navigate(['/planets', url]).then();
+
+    // this.router.navigate(['/planets', url]).then();
   }
 
 }

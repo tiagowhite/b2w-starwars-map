@@ -1,4 +1,4 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -7,10 +7,11 @@ import { MaterialModule } from './material.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { NavigationComponent } from './core/navigation/navigation.component';
+import { PlanetOverlayComponent } from './core/planet-overlay/planet-overlay.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, NavigationComponent],
+
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,7 +25,9 @@ import { NavigationComponent } from './core/navigation/navigation.component';
     HeaderComponent,
     FooterComponent,
     NavigationComponent
-  ]
+  ],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent, PlanetOverlayComponent],
+  entryComponents: [PlanetOverlayComponent]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

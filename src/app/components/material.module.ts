@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-
+import { NgModule } from '@angular/core';
+import { OverlayModule } from '@angular/cdk/overlay';
 import {
   MatButtonModule,
   MatCardModule,
@@ -14,16 +14,13 @@ import {
   MatTooltipModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  DateAdapter,
   MatToolbarModule,
   MatDividerModule,
   MatListModule,
-  MatGridListModule,
-
-
+  MatGridListModule
 } from '@angular/material';
-import {MaterialDateAdapter, MY_FORMATS} from './material-date-adapter';
-import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { PlanetOverlayComponent } from './core/planet-overlay/planet-overlay.component';
+
 
 @NgModule({
   imports: [
@@ -64,12 +61,11 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    OverlayModule
   ],
-  providers: [
-    {provide: DateAdapter, useClass: MaterialDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-  ]
+  providers: []
+
 })
 export class MaterialModule {
 }
