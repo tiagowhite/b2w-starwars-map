@@ -31,7 +31,7 @@ export class GetPlanetsError implements Action {
 
 export class GetPlanet implements Action {
   public readonly type = PlanetActionsEnum.GetPlanet;
-  constructor(public payload: string ) {}
+  constructor(public payload: Planet ) {}
 
 }
 

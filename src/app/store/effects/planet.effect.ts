@@ -24,18 +24,33 @@ export class PlanetEffect {
   @Effect()
   getPlanet = this.actions.pipe(
     ofType<GetPlanet>(PlanetActionsEnum.GetPlanet),
-    switchMap((action => action.payload)),
-    /*switchMap((action) => this.planetService.getPlanet<Planet>(action)),
-    switchMap((planet: Planet) => of(new GetPlanetSuccess(planet))),
-    catchError((err: string) => of(new GetPlanetError(err)))*/
-  );
+    map((action) => action.payload),
+    withLatestFrom(this.store.pipe(select(selectPlanetList))),
+    switchMap( ([name, planets]) => {
+      debugger;
+      const selectedPlanet =  planets.filter(planet => planet.url === name)[0];
+      return of(new GetPlanetSuccess(selectedPlanet));
+    }), 
 
+  );
+  /*
+ @Effect()
+  getPlanet = this.actions.pipe(
+    ofType<GetPlanet>(PlanetActionsEnum.GetPlanet),
+    map(action => action.payload),
+    withLatestFrom(this.store.pipe(select(selectPlanetList))),
+    switchMap(([url, planets]) => {
+      const selectedPlanet = planets.filter(planet => planet.url === url)[0];
+      return of(new GetPlanetSuccess(selectedPlanet));
+    })
+  );
+   */
 
   @Effect()
   getPlanets = this.actions.pipe(
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
-    switchMap((planetList: PlanetsHttp) => of(new GetPlanetsSuccess(planetList.results))),
+    switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
 
