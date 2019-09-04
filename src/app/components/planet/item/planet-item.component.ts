@@ -10,15 +10,15 @@ import { log } from 'util';
 export class PlanetItemComponent implements OnInit {
 
   @Input() planets: Array<Planet>;
-  @Output() planetSelected: EventEmitter<Planet> = new EventEmitter<Planet>();
+  @Output() planetSelected: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {
   }
 
-  navigateToPlanet(planet: Planet) {
-    this.planetSelected.emit(planet);
+  navigateToPlanet(url: string) {
+    this.planetSelected.emit(url);
   }
 
 }

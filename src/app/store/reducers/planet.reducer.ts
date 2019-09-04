@@ -29,9 +29,7 @@ export const planetReducer = (
     case PlanetActionsEnum.GetPlanet: {
       return {
         ...state,
-        isLoading: true,
-        selectedPlanet: action.payload
-
+        isLoading: true
       };
     }
     case PlanetActionsEnum.GetPlanetSuccess: {

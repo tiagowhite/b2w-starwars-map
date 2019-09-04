@@ -23,8 +23,8 @@ export class PlanetsComponent implements OnInit {
   }
 
   goToPlanet(event: any) {
-    const name = encodeURI(event.name);
-    this.router.navigate(['/planets', name]).then();
+    const url = encodeURI(event);
+    this.router.navigate(['/planets', url]).then();
   }
 
 }
