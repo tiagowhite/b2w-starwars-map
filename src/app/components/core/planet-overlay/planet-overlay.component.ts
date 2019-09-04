@@ -7,6 +7,7 @@ import { PlanetOverlayContent, PlanetOverlayRef } from './planet-overlay-ref';
   styleUrls: ['./planet-overlay.component.scss']
 })
 export class PlanetOverlayComponent implements OnInit {
+
   renderMethod: 'template' | 'component' | 'text' = 'component';
   content: PlanetOverlayContent;
   context;
