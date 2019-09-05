@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Planet } from '../../../models/planet';
 
+
 @Component({
   selector: 'app-planet-detail',
   templateUrl: './planet-detail.component.html',
@@ -14,6 +15,8 @@ export class PlanetDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
 
 }

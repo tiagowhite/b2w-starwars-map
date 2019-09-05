@@ -1,5 +1,6 @@
 @import '~@angular/material/theming';
 @import '~material-design-icons/iconfont/material-icons.css';
+@import "~@angular/cdk/overlay-prebuilt";
 
 @include mat-core();
 $swm-app-primary: mat-palette($mat-deep-purple, 700);

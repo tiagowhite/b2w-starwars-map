@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { PlanetComponent } from './containers/planet/planet.component';
-import { PlanetsComponent } from './containers/planets/planets.component';
+import { PlanetContainerComponent } from './containers/planet/planet-container.component';
+import { PlanetsContainerComponent } from './containers/planets/planets-container.component';
 
 
 const routes: Routes = [
-  {path: 'planets', component: PlanetsComponent},
-  {path: 'planets/:name', component: PlanetComponent},
+  {path: 'planets', component: PlanetsContainerComponent},
+  {path: 'planets/:name', component: PlanetContainerComponent},
   {path: '', redirectTo: '/planets', pathMatch: 'full'}
 ];
 
