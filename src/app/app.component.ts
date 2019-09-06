@@ -16,25 +16,19 @@ import { GetConfig } from './store/actions/config.actions';
 })
 export class AppComponent implements OnInit {
 
-  loading$: Observable<boolean>;
   config$: Observable<Config>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
+    .pipe(map(result => result.matches),
       share()
     );
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private store: Store<AppState>
-  ) {
-    this.store.dispatch(new GetConfig());
+  constructor(private breakpointObserver: BreakpointObserver, private store: Store<AppState>) {
+    this.config$ = this.store.pipe(select(selectConfig));
   }
 
   ngOnInit() {
-    this.loading$ = this.store.pipe(select(isPlanetsListLoading));
-    this.config$ = this.store.pipe(select(selectConfig));
+    this.store.dispatch(new GetConfig());
   }
 
 

@@ -11,6 +11,7 @@ import { PlanetOverlayComponent } from './core/planet-overlay/planet-overlay.com
 import { PlanetDetailComponent } from './planet/detail/planet-detail.component';
 import { PlanetContainerComponent } from '../containers/planet/planet-container.component';
 import { PlanetsContainerComponent } from '../containers/planets/planets-container.component';
+import { LoadingComponent } from './core/loading/loading.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { PlanetsContainerComponent } from '../containers/planets/planets-contain
     FooterComponent,
     NavigationComponent
   ],
-  declarations: [HeaderComponent, FooterComponent, NavigationComponent, PlanetOverlayComponent],
+  declarations: [HeaderComponent, FooterComponent, NavigationComponent, PlanetOverlayComponent, LoadingComponent],
   entryComponents: [PlanetOverlayComponent, PlanetContainerComponent, PlanetDetailComponent]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {
