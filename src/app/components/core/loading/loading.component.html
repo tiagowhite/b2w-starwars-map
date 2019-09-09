@@ -1,1 +1,6 @@
-<p>loading works!</p>
+<ng-container [ngSwitch]="mode" *ngIf="loading$ | async">
+  <mat-progress-bar class="loading" color="accent" mode="indeterminate" *ngSwitchCase="'progress-bar'"></mat-progress-bar>
+  <mat-spinner class="loading" color="accent" mode="indeterminate" *ngSwitchCase="'spinner'"></mat-spinner>
+</ng-container>
+
+

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Planet } from '../../../models/planet';
-import { log } from 'util';
 
 @Component({
   selector: 'app-planet-item',

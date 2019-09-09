@@ -28,7 +28,8 @@ import { LoadingComponent } from './core/loading/loading.component';
     MaterialModule,
     HeaderComponent,
     FooterComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoadingComponent
   ],
   declarations: [HeaderComponent, FooterComponent, NavigationComponent, PlanetOverlayComponent, LoadingComponent],
   entryComponents: [PlanetOverlayComponent, PlanetContainerComponent, PlanetDetailComponent]

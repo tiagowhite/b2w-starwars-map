@@ -7,7 +7,6 @@ import { Store, select } from '@ngrx/store';
 import { PlanetOverlayService } from '../../components/core/planet-overlay/planet-overlay.service';
 import { PlanetContainerComponent } from '../planet/planet-container.component';
 import { Observable } from 'rxjs';
-import { PlanetsHttp } from '../../models/planets-http';
 import { Planet } from '../../models/planet';
 
 
@@ -19,11 +18,13 @@ import { Planet } from '../../models/planet';
 export class PlanetsContainerComponent implements OnInit {
 
   planets$: Observable<Planet[]>;
-  loading$: Observable<boolean>;
 
-  constructor(private store: Store<AppState>, private router: Router, private planetOverlay: PlanetOverlayService) {
+  constructor(
+    private store: Store<AppState>,
+    private router: Router,
+    private planetOverlay: PlanetOverlayService,
+  ) {
     this.planets$ = this.store.pipe(select(selectPlanetList));
-    this.loading$ = this.store.pipe(select(isPlanetsListLoading));
   }
 
   ngOnInit() {
@@ -48,5 +49,6 @@ export class PlanetsContainerComponent implements OnInit {
     ref.afterClosed$.subscribe();
 
   }
+
 
 }

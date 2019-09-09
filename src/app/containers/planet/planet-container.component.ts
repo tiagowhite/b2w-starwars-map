@@ -3,8 +3,10 @@ import { AppState } from '../../store/state/app.state';
 import { Store, select } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { GetPlanet } from '../../store/actions/planet.actions';
-import { selectSelectedPlanet } from '../../store/selectors/planet.selector';
+import { isPlanetsListLoading, selectSelectedPlanet } from '../../store/selectors/planet.selector';
 import { PlanetOverlayRef } from '../../components/core/planet-overlay/planet-overlay-ref';
+import { Observable } from 'rxjs';
+import { Planet } from '../../models/planet';
 
 @Component({
   selector: 'app-planet-container',
@@ -14,10 +16,11 @@ import { PlanetOverlayRef } from '../../components/core/planet-overlay/planet-ov
 export class PlanetContainerComponent implements OnInit {
 
   selectedPlanet: string;
-  planet$ = this.store.pipe(select(selectSelectedPlanet));
+  planet$: Observable<Planet>;
 
   constructor(private store: Store<AppState>, private route: ActivatedRoute, private planetOverlayRef: PlanetOverlayRef) {
     this.selectedPlanet = planetOverlayRef.data.selectedPlanet;
+    this.planet$ = this.store.pipe(select(selectSelectedPlanet));
   }
 
   ngOnInit() {
