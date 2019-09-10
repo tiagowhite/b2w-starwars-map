@@ -25,7 +25,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
   @Input() mode: 'progress-bar' | 'spinner' | any;
   private loading$: Observable<boolean>;
   private subscription: Subscription;
-  private show;
+  private show: boolean;
 
   constructor(private store: Store<AppState>) {
     this.loading$ = this.store.pipe(select(isPlanetsListLoading));
@@ -34,7 +34,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.loading$.subscribe(state => {
-      Promise.resolve(null).then(() => {
+      Promise.resolve(false).then(() => {
         this.show = state;
       });
     });
@@ -42,7 +42,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-
+    this.subscription.unsubscribe();
   }
 
 }

@@ -1,9 +1,9 @@
-<mat-card class="planet" *ngIf="planet">
-  <mat-card-header>
+<div class="planet" *ngIf="planet">
+  <div>
     <div mat-card-avatar></div>
-    <mat-card-title><h2>{{planet.name}}</h2></mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
+    <h2>{{planet.name}}</h2>
+  </div>
+  <div>
     <div class="detail">
       <div class="planet-props">
         <h4>Elementos Orbitais</h4>
@@ -34,8 +34,5 @@
         </div>
       </div>
     </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-flat-button color="primary">Randomizar</button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+</div>
