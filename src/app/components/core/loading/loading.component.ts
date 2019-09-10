@@ -9,7 +9,7 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { interval, Observable, Subscription } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { isPlanetsListLoading } from '../../../store/selectors/planet.selector';
 import { AppState } from '../../../store/state/app.state';
@@ -20,10 +20,12 @@ import { take } from 'rxjs/operators';
   templateUrl: './loading.component.html',
   styleUrls: ['./loading.component.scss']
 })
-export class LoadingComponent implements OnInit, OnDestroy{
+export class LoadingComponent implements OnInit, OnDestroy {
 
   @Input() mode: 'progress-bar' | 'spinner' | any;
   private loading$: Observable<boolean>;
+  private subscription: Subscription;
+  private show;
 
   constructor(private store: Store<AppState>) {
     this.loading$ = this.store.pipe(select(isPlanetsListLoading));
@@ -31,7 +33,11 @@ export class LoadingComponent implements OnInit, OnDestroy{
 
 
   ngOnInit() {
-
+    this.subscription = this.loading$.subscribe(state => {
+      Promise.resolve(null).then(() => {
+        this.show = state;
+      });
+    });
   }
 
 

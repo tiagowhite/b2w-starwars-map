@@ -1,4 +1,4 @@
-<ng-container [ngSwitch]="mode" *ngIf="loading$ | async">
+<ng-container [ngSwitch]="mode" *ngIf="show">
   <mat-progress-bar class="loading" color="accent" mode="indeterminate" *ngSwitchCase="'progress-bar'"></mat-progress-bar>
   <mat-spinner class="loading" color="accent" mode="indeterminate" *ngSwitchCase="'spinner'"></mat-spinner>
 </ng-container>
