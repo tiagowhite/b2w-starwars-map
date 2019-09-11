@@ -11,12 +11,16 @@ export class PlanetOverlayComponent implements OnInit {
   renderMethod: 'template' | 'component' | 'text' = 'component';
   content: PlanetOverlayContent;
   context;
+  state: boolean;
 
   constructor(private planetOverlayRef: PlanetOverlayRef) {
   }
 
   ngOnInit() {
     this.content = this.planetOverlayRef.content;
+
+    this.state = this.planetOverlayRef.data.state;
+
     if (typeof this.content === 'string') {
       this.renderMethod = 'text';
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { isPlanetsListLoading, selectPlanetList } from '../../store/selectors/planet.selector';
+import { selectPlanetList } from '../../store/selectors/planet.selector';
 import { AppState } from '../../store/state/app.state';
 import { Router } from '@angular/router';
 import { GetPlanets } from '../../store/actions/planet.actions';
@@ -31,23 +31,23 @@ export class PlanetsContainerComponent implements OnInit {
     this.store.dispatch(new GetPlanets());
   }
 
-  goToPlanet(event: any) {
+  goToPlanet(event: string) {
     this.showPlanetDetail(null, origin, event);
   }
 
   showPlanetDetail(content: TemplateRef<any>, origin, selectedPlanet) {
-    const ref = this.planetOverlay.open<{ selectedPlanet: string }>({
+    const ref = this.planetOverlay.open<{ selectedPlanet: string, state: boolean }>({
       content: PlanetContainerComponent,
       origin,
       width: '100%',
       height: '100%',
       data: {
-        selectedPlanet
+        selectedPlanet,
+        state: true
       }
     });
 
     ref.afterClosed$.subscribe();
-
   }
 
 

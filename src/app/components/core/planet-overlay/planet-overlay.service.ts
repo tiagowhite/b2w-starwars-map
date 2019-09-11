@@ -46,7 +46,6 @@ export class PlanetOverlayService {
     const injector = this.createInjector(planetOverlayRef, this.injector);
 
     overlayRef.attach(new ComponentPortal(PlanetOverlayComponent, null, injector));
-
     return planetOverlayRef;
   }
 
