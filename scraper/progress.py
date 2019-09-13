@@ -1,5 +1,6 @@
 import time
 import progressbar
+
 planets = ["Alderaan", "Yavin_IV", "Hoth", "Dagobah", "Bespin", "Endor", "Naboo", "Coruscant", "Kamino",
            "Geonosis", "Utapau", "Mustafar", "Kashyyyk", "Polis_Massa", "Mygeeto", "Felucia",
            "Cato_Neimoidia", "Saleucami", "Stewjon", "Eriadu", "Corellia", "Rodia", "Nal_Hutta", "Dantooine",
@@ -8,7 +9,16 @@ planets = ["Alderaan", "Yavin_IV", "Hoth", "Dagobah", "Bespin", "Endor", "Naboo"
            "Haruun_Kal", "Cerea", "Glee_Anselm", "Iridonia", "Tholoth", "Iktotch", "Champala", "Mirial",
            "Serenno", "Concord Dawn", "Zolan", "Ojom", "Skako", "Muunilinst", "Shili", "Kalee", "Tatooine",
            "Jakku"]
-bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength)
-for i in range(len(planets)):
+
+widgets = [
+    'Test: ', progressbar.Percentage(),
+    ' ', progressbar.Bar(marker=progressbar.RotatingMarker()),
+    ' ', progressbar.ETA(),
+    ' ', progressbar.FileTransferSpeed(),
+]
+bar = progressbar.ProgressBar(widgets=widgets, max_value=1000).start()
+for i in range(100):
+    # do something
     time.sleep(0.1)
-    bar.update(i)
+    bar.update(10 * i + 1)
+    bar.finish()
