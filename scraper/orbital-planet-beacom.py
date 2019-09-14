@@ -19,7 +19,9 @@ planets = ["Alderaan", "Yavin_IV", "Hoth", "Dagobah", "Bespin", "Endor", "Naboo"
            "Haruun_Kal", "Cerea", "Glee_Anselm", "Iridonia", "Tholoth", "Iktotch", "Champala", "Mirial",
            "Serenno", "Concord Dawn", "Zolan", "Ojom", "Skako", "Muunilinst", "Shili", "Kalee", "Tatooine",
            "Jakku"]
+
 bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength)
+
 # get the planet data
 for planet in planets:
     url = 'https://starwars.fandom.com/wiki/' + planet
@@ -40,13 +42,14 @@ for planet in planets:
             log = "requesting... "
             file_name = image_name.split('/')[-1].replace(" ", "_")
             r = requests.get(image_link, stream=True)
+            print("[" + date_time + "]" + "[" + log + "]" + "[" + file_name + "]")
             with open(file_name, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=1024 * 1024):
                     if chunk:
                         for i in range(100):
                             f.write(chunk)
                             bar.update(i)
-                    print("%s"%"[" + file_name + "]")
+                    print("%s" % "[" + file_name + "]")
         except AttributeError:
             print("ERROR!!! Image not found...")
             pass
