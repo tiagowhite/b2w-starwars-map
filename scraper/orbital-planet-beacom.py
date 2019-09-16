@@ -1,14 +1,18 @@
 # /usr/bin/python3
 from datetime import datetime
 from bs4 import BeautifulSoup
+from termcolor import colored
 import requests
 import pyfiglet
-import progressbar
+import json
 
 now = datetime.now()
 date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+ascii_banner = pyfiglet.figlet_format("Planet Beacom")
 
-ascii_banner = pyfiglet.figlet_format("StarWars Planet Beacom")
+# json structure
+assets = {'planet': []}
+
 print(ascii_banner)
 
 planets = ["Alderaan", "Yavin_IV", "Hoth", "Dagobah", "Bespin", "Endor", "Naboo", "Coruscant", "Kamino",
@@ -20,12 +24,11 @@ planets = ["Alderaan", "Yavin_IV", "Hoth", "Dagobah", "Bespin", "Endor", "Naboo"
            "Serenno", "Concord Dawn", "Zolan", "Ojom", "Skako", "Muunilinst", "Shili", "Kalee", "Tatooine",
            "Jakku"]
 
-bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength)
-
 # get the planet data
 for planet in planets:
     url = 'https://starwars.fandom.com/wiki/' + planet
     req = requests.get(url)
+
     # load data into bs4
     soup = BeautifulSoup(req.text, 'html.parser')
 
@@ -34,22 +37,25 @@ for planet in planets:
         data_image_attrs = planet_image.find('img').attrs
         image_name = data_image_attrs['data-image-name']
     except AttributeError:
-        print("CURRENT ERROR IN PLANET: " + planet)
+        print(colored('ERROR IN PLANET: ' + planet, 'red'))
         pass
     else:
         try:
             image_link = planet_image.find('a')['href']
-            log = "requesting... "
             file_name = image_name.split('/')[-1].replace(" ", "_")
             r = requests.get(image_link, stream=True)
-            print("[" + date_time + "]" + "[" + log + "]" + "[" + file_name + "]")
+            log = "Saving... [" + date_time + "]" + "[" + file_name + "]"
+            print(colored(log, 'green'))
+
             with open(file_name, 'wb') as f:
                 for chunk in r.iter_content(chunk_size=1024 * 1024):
                     if chunk:
                         for i in range(100):
                             f.write(chunk)
-                            bar.update(i)
-                    print("%s" % "[" + file_name + "]")
+                        assets['planet'].append({'name': planet, 'image': file_name})
+                        with open('assets.json', 'w') as outfile:
+                            json.dump(assets, outfile)
+                        print(colored("[" + "DONE" + "]", 'blue'))
         except AttributeError:
-            print("ERROR!!! Image not found...")
+            print(colored('ERROR!!! Image not found..: ' + planet, 'red'))
             pass
