@@ -52,17 +52,21 @@ def scraper(planets_array, target_url):
                 r = requests.get(image_link, stream=True)
                 log = "Saving... [" + date_time + "]" + "[" + file_name + "]"
                 print(colored(log, 'green'))
-                with open(file_name, 'wb') as f:
-                    for chunk in r.iter_content(chunk_size=1024 * 1024):
-                        if chunk:
-                            f.write(chunk)
-                        assets['planets'].append({'name': planet, 'path': f.name})
-                        with open('assets.json', 'w') as outfile:
-                            json.dump(assets, outfile)
-                            print(colored("[" + "DONE" + "]", 'blue'))
+                save_images(file_name, planet, r)
             except AttributeError:
                 print(colored('ERROR!!! Image not found..: ' + planet, 'red'))
                 pass
+
+
+def save_images(file_name, planet, r):
+    with open(file_name, 'wb') as f:
+        for chunk in r.iter_content(chunk_size=1024 * 1024):
+            if chunk:
+                f.write(chunk)
+            assets['planets'].append({'name': planet, 'path': f.name})
+            with open('assets.json', 'w') as outfile:
+                json.dump(assets, outfile)
+                print(colored("[" + "DONE" + "]", 'blue'))
 
 
 scraper(planets, url)
