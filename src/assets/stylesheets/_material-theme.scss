@@ -3,10 +3,11 @@
 @import "~@angular/cdk/overlay-prebuilt";
 
 @include mat-core();
-$swm-app-primary: mat-palette($mat-deep-purple, 700);
-$swm-app-accent: mat-palette($mat-amber, 500);
+$swm-app-primary: mat-palette($mat-yellow, 600);
+$swm-app-secondary: mat-palette($mat-gray, 800);
+$swm-app-accent: mat-palette($mat-gray, 800);
 $swm-app-warn: mat-palette($mat-pink, 500, 700);
-$swm-app-theme: mat-light-theme($swm-app-primary, $swm-app-accent, $swm-app-warn);
+$swm-app-theme: mat-dark-theme($swm-app-primary, $swm-app-accent, $swm-app-warn);
 
 
 $swm-base-typography: mat-typography-config(
