@@ -1,8 +1,7 @@
-@import "~src/assets/stylesheets/vars";
-
+@import '~@angular/material/theming';
 
 footer {
-  background-color: $material-footer-color;
+  background-color: mat-color($mat-yellow, 600);
   padding: 20px;
   font-size: 12px;
   display: flex;
@@ -31,11 +30,11 @@ footer {
   }
 
   ul > li > a > svg > path {
-    fill: $swm-pink;
+    // fill: $swm-pink;
   }
 
   ul > li > a:hover > svg > path {
-    fill: $swm-dark-purple;
+    // fill: $swm-dark-purple;
     transition: color .35s ease;
   }
 }
