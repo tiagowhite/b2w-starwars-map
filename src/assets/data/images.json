@@ -1,0 +1,236 @@
+{
+  "planets": [
+    {
+      "name": "Alderaan",
+      "path": "src/assets/planet_images/Alderaan.jpg"
+    },
+    {
+      "name": "Yavin_IV",
+      "path": "src/assets/planet_images/Eaw_Yavin4.jpg"
+    },
+    {
+      "name": "Hoth",
+      "path": "src/assets/planet_images/Hoth_SWCT.png"
+    },
+    {
+      "name": "Hoth",
+      "path": "src/assets/planet_images/Hoth_SWCT.png"
+    },
+    {
+      "name": "Dagobah",
+      "path": "src/assets/planet_images/Dagobah_ep3.jpg"
+    },
+    {
+      "name": "Bespin",
+      "path": "src/assets/planet_images/Bespin-SWCT.png"
+    },
+    {
+      "name": "Endor",
+      "path": "src/assets/planet_images/Endor_BF2.png"
+    },
+    {
+      "name": "Endor",
+      "path": "src/assets/planet_images/Endor_BF2.png"
+    },
+    {
+      "name": "Naboo",
+      "path": "src/assets/planet_images/Naboo_planet.png"
+    },
+    {
+      "name": "Coruscant",
+      "path": "src/assets/planet_images/CoruscantGlobeE1.png"
+    },
+    {
+      "name": "Kamino",
+      "path": "src/assets/planet_images/Kamino-DB.png"
+    },
+    {
+      "name": "Geonosis",
+      "path": "src/assets/planet_images/Geonosis_AotC.png"
+    },
+    {
+      "name": "Utapau",
+      "path": "src/assets/planet_images/UtapauRotS.png"
+    },
+    {
+      "name": "Mustafar",
+      "path": "src/assets/planet_images/Mustafar_DB.png"
+    },
+    {
+      "name": "Kashyyyk",
+      "path": "src/assets/planet_images/Kashyyyk-SW-MTHC.png"
+    },
+    {
+      "name": "Polis_Massa",
+      "path": "src/assets/planet_images/Polis_Massa_surface.jpg"
+    },
+    {
+      "name": "Mygeeto",
+      "path": "src/assets/planet_images/Mygeeto_GE2.jpg"
+    },
+    {
+      "name": "Felucia",
+      "path": "src/assets/planet_images/Felucia_SWCT.png"
+    },
+    {
+      "name": "Cato_Neimoidia",
+      "path": "src/assets/planet_images/CatoNeimoidia-SS.png"
+    },
+    {
+      "name": "Saleucami",
+      "path": "src/assets/planet_images/Saleucami-TD.png"
+    },
+    {
+      "name": "Saleucami",
+      "path": "src/assets/planet_images/Saleucami-TD.png"
+    },
+    {
+      "name": "Eriadu",
+      "path": "src/assets/planet_images/Eriadu_AoRGMT.png"
+    },
+    {
+      "name": "Corellia",
+      "path": "src/assets/planet_images/Corellia-SWCT.png"
+    },
+    {
+      "name": "Rodia",
+      "path": "src/assets/planet_images/Rodia_canon.png"
+    },
+    {
+      "name": "Nal_Hutta",
+      "path": "src/assets/planet_images/NalHutta-HFZ.png"
+    },
+    {
+      "name": "Dantooine",
+      "path": "src/assets/planet_images/DantooineRebels.png"
+    },
+    {
+      "name": "Bestine_IV",
+      "path": "src/assets/planet_images/Bestine-TFABG.jpg"
+    },
+    {
+      "name": "Ord_Mantell",
+      "path": "src/assets/planet_images/Ord_Mantell_EotECR.png"
+    },
+    {
+      "name": "Ord_Mantell",
+      "path": "src/assets/planet_images/Ord_Mantell_EotECR.png"
+    },
+    {
+      "name": "Trandosha",
+      "path": "src/assets/planet_images/Trandosha-PL.png"
+    },
+    {
+      "name": "Socorro",
+      "path": "src/assets/planet_images/Socorro.png"
+    },
+    {
+      "name": "Mon_Cala",
+      "path": "src/assets/planet_images/Mon_Cala_SWCT.png"
+    },
+    {
+      "name": "Chandrila",
+      "path": "src/assets/planet_images/A_New_Dawn-SWP.jpg"
+    },
+    {
+      "name": "Sullust",
+      "path": "src/assets/planet_images/Sullust_DICE.png"
+    },
+    {
+      "name": "Sullust",
+      "path": "src/assets/planet_images/Sullust_DICE.png"
+    },
+    {
+      "name": "Toydaria",
+      "path": "src/assets/planet_images/Toydaria-TCW.png"
+    },
+    {
+      "name": "Malastare",
+      "path": "src/assets/planet_images/Malastare_landscape.png"
+    },
+    {
+      "name": "Dathomir",
+      "path": "src/assets/planet_images/Dathomir-Massacre.png"
+    },
+    {
+      "name": "Ryloth",
+      "path": "src/assets/planet_images/Ryloth_Rebels.png"
+    },
+    {
+      "name": "Vulpter",
+      "path": "src/assets/planet_images/Aargau-TFABG.jpg"
+    },
+    {
+      "name": "Troiken",
+      "path": "src/assets/planet_images/Troiken.jpg"
+    },
+    {
+      "name": "Tund",
+      "path": "src/assets/planet_images/Tund_FFG.png"
+    },
+    {
+      "name": "Haruun_Kal",
+      "path": "src/assets/planet_images/Pax-TFABG.png"
+    },
+    {
+      "name": "Cerea",
+      "path": "src/assets/planet_images/Cerea_-_sw_galactic_atlas.png"
+    },
+    {
+      "name": "Glee_Anselm",
+      "path": "src/assets/planet_images/Glee_Anselm_fuel_log.png"
+    },
+    {
+      "name": "Iridonia",
+      "path": "src/assets/planet_images/Iridonia_FFG.png"
+    },
+    {
+      "name": "Iktotch",
+      "path": "src/assets/planet_images/Aridus_TFA_BG.jpg"
+    },
+    {
+      "name": "Champala",
+      "path": "src/assets/planet_images/Champala-TFABG.jpg"
+    },
+    {
+      "name": "Mirial",
+      "path": "src/assets/planet_images/Ruuria-TFABG.jpg"
+    },
+    {
+      "name": "Serenno",
+      "path": "src/assets/planet_images/Serenno-Massacre.png"
+    },
+    {
+      "name": "Concord Dawn",
+      "path": "src/assets/planet_images/Concord_Dawn_system.png"
+    },
+    {
+      "name": "Concord Dawn",
+      "path": "src/assets/planet_images/Concord_Dawn_system.png"
+    },
+    {
+      "name": "Skako",
+      "path": "src/assets/planet_images/Skako.jpg"
+    },
+    {
+      "name": "Muunilinst",
+      "path": "src/assets/planet_images/JaemusMuunilinstEntralla_ROarticle.jpg"
+    },
+    {
+      "name": "Shili",
+      "path": "src/assets/planet_images/Shili_and_balnab_-_sw_galactic_atlas.png"
+    },
+    {
+      "name": "Kalee",
+      "path": "src/assets/planet_images/KaleePlanet.jpg"
+    },
+    {
+      "name": "Tatooine",
+      "path": "src/assets/planet_images/Tatooine_TPM.png"
+    },
+    {
+      "name": "Jakku",
+      "path": "src/assets/planet_images/Jakku_-_full_-_SW_Poe_Dameron_Flight_Log_.png"
+    }
+  ]
+}

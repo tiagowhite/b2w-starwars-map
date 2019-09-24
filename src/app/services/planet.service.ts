@@ -11,7 +11,7 @@ import { log } from 'util';
 })
 export class PlanetService {
   planetUrl = `${environment.swapi}planets`;
-  testUrl = `${environment.mockApi}terrain.json`;
+  images = `${environment.mockApi}images.json`;
 
   constructor(private http: HttpClient) {
   }
@@ -24,10 +24,11 @@ export class PlanetService {
     return this.http.get<T>(url);
   }
 
-  public test<T>(): Observable<T> | any {
-    return this.http.get<T>(this.testUrl)
+  public getPlanetImage<T>(name: string): Observable<T> | any {
+    return this.http.get<T>(name)
       .pipe(
         map((res: any) => {
+          debugger;
           const filter = [...new Set(res.map(x => x.terrain))];
           const split = [].concat(...filter.map(
             value => value.toString().replace(/\s+/g, '').split(',')

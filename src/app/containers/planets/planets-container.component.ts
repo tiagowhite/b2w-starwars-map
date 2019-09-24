@@ -8,6 +8,7 @@ import { PlanetOverlayService } from '../../components/core/planet-overlay/plane
 import { PlanetContainerComponent } from '../planet/planet-container.component';
 import { Observable } from 'rxjs';
 import { Planet } from '../../models/planet';
+import { PlanetService } from '../../services/planet.service';
 
 
 @Component({
@@ -23,12 +24,14 @@ export class PlanetsContainerComponent implements OnInit {
     private store: Store<AppState>,
     private router: Router,
     private planetOverlay: PlanetOverlayService,
+    private planetService: PlanetService,
   ) {
     this.planets$ = this.store.pipe(select(selectPlanetList));
   }
 
   ngOnInit() {
     this.store.dispatch(new GetPlanets());
+    this.planetService.getPlanetImage('Alderan');
   }
 
   goToPlanet(event: string) {
