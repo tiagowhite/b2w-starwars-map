@@ -19,6 +19,18 @@ export const planetReducer = (
         planets: action.payload
       };
     }
+    case PlanetActionsEnum.GetPlanetsImage: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case PlanetActionsEnum.GetPlanetsImageSuccess: {
+      return {
+        ...state,
+        isLoading: false
+      };
+    }
     case PlanetActionsEnum.GetPlanetsError: {
       return {
         ...state,

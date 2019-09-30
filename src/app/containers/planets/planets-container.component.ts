@@ -24,14 +24,12 @@ export class PlanetsContainerComponent implements OnInit {
     private store: Store<AppState>,
     private router: Router,
     private planetOverlay: PlanetOverlayService,
-    private planetService: PlanetService,
   ) {
     this.planets$ = this.store.pipe(select(selectPlanetList));
   }
 
   ngOnInit() {
     this.store.dispatch(new GetPlanets());
-    this.planetService.getPlanetImage('Alderan');
   }
 
   goToPlanet(event: string) {

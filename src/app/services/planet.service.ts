@@ -24,6 +24,7 @@ export class PlanetService {
   }
 
   public getPlanetImage<T>(): Observable<T> | any {
+    debugger;
     return this.http.get<T>(this.images);
   }
 

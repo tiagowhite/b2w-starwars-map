@@ -10,6 +10,7 @@ import { selectPlanetList } from '../selectors/planet.selector';
 import { PlanetsHttp } from '../../models/planets-http';
 import { Planet } from '../../models/planet';
 import * as b2wActions from '../actions/planet.actions';
+import { log } from 'util';
 
 @Injectable()
 export class PlanetEffect {
@@ -32,14 +33,8 @@ export class PlanetEffect {
     ofType<b2wActions.GetPlanets>(b2wActions.PlanetActionsEnum.GetPlanets),
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
     switchMap((planets: PlanetsHttp) => of(new b2wActions.GetPlanetsSuccess(planets.results))),
-    /*switchMap((data: any) => {
-      return forkJoin([
-        of(data),
-        this.planetService.getPlanetImage()
-          .map((image: any) => image)
-          .filter(image => data.name === image.name)
-      ]);
-    }),*/
+
+
     catchError((err: string) => of(new b2wActions.GetPlanetsError(err)))
   );
 

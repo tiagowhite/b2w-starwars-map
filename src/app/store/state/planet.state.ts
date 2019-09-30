@@ -2,6 +2,7 @@ import {Planet} from '../../models/planet';
 
 export interface PlanetState {
   planets: Array<Planet>;
+  planets_images: Array<PlanetImages>;
   selectedPlanet: Planet;
   isLoading: boolean;
   error: boolean;
@@ -10,6 +11,7 @@ export interface PlanetState {
 
 export const initialPlanetState: PlanetState = {
   planets: null,
+  planets_images: null,
   selectedPlanet: null,
   isLoading: false,
   error: false,

@@ -3,6 +3,8 @@ import { Planet } from '../../models/planet';
 
 export enum PlanetActionsEnum {
   GetPlanets = '[Get Planets] Get Planets',
+  GetPlanetsImage = '[Get Planets Images] Get Images',
+  GetPlanetsImageSuccess = '[Get Planets Images] Get Images Success',
   GetPlanetsSuccess = '[Get Planets] Get Planets Success',
   GetPlanetsError = '[Get Planets Error] Get Planets Error',
   GetPlanet = '[Get Planet] Get Planet',
@@ -21,6 +23,17 @@ export class GetPlanetsSuccess implements Action {
   }
 }
 
+export class GetPlanetsImages implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetsImage;
+}
+
+export class GetPlanetsImagesSuccess implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetsImageSuccess;
+
+  constructor(public payload: string) {
+  }
+}
+
 export class GetPlanetsError implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsError;
 
@@ -31,7 +44,9 @@ export class GetPlanetsError implements Action {
 
 export class GetPlanet implements Action {
   public readonly type = PlanetActionsEnum.GetPlanet;
-  constructor(public payload: string ) {}
+
+  constructor(public payload: string) {
+  }
 
 }
 
@@ -49,4 +64,12 @@ export class GetPlanetError implements Action {
   }
 }
 
-export type PlanetActions = GetPlanets | GetPlanetsSuccess | GetPlanet | GetPlanetSuccess | GetPlanetsError | GetPlanetError;
+export type PlanetActions =
+  GetPlanets
+  | GetPlanetsSuccess
+  | GetPlanetsImages
+  | GetPlanetsImagesSuccess
+  | GetPlanet
+  | GetPlanetSuccess
+  | GetPlanetsError
+  | GetPlanetError;
