@@ -33,7 +33,16 @@ export class PlanetEffect {
     ofType<b2wActions.GetPlanets>(b2wActions.PlanetActionsEnum.GetPlanets),
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
     switchMap((planets: PlanetsHttp) => of(new b2wActions.GetPlanetsSuccess(planets.results))),
-
+    switchMap((data: any) => {
+      const [planets, images] = data;
+      return forkJoin([
+        of(planets),
+        of(images),
+        this.planetService.getPlanetImage().pipe(
+          map((data$: any) => (console.log(data$)))
+        )
+      ]);
+    }),
 
     catchError((err: string) => of(new b2wActions.GetPlanetsError(err)))
   );
