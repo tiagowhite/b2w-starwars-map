@@ -8,6 +8,7 @@ import { isPlanetsListLoading } from './store/selectors/planet.selector';
 import { selectConfig } from './store/selectors/config.selector';
 import { Config } from './models/config';
 import { GetConfig } from './store/actions/config.actions';
+import { PlanetService } from './services/planet.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { GetConfig } from './store/actions/config.actions';
 export class AppComponent implements OnInit {
 
   config$: Observable<Config>;
+  images = [];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(map(result => result.matches),
@@ -29,6 +31,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new GetConfig());
+
   }
 
 

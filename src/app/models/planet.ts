@@ -5,6 +5,7 @@ export interface Planet {
   id?: number;
   url: string;
   name: string;
+  image?: string;
   rotation_period: number;
   orbital_period: number;
   diameter: number;
