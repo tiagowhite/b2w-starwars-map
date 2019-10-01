@@ -34,6 +34,7 @@ export const planetReducer = (
       return {
         ...state,
         error: true,
+        isLoading: false,
         errorMessage: action.payload
       };
     }

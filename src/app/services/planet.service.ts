@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { log } from 'util';
 
 
 
@@ -24,7 +25,6 @@ export class PlanetService {
   }
 
   public getPlanetImage<T>(): Observable<T> | any {
-    debugger;
     return this.http.get<T>(this.images);
   }
 

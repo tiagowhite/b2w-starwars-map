@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, Store, select } from '@ngrx/store';
 
@@ -32,18 +32,24 @@ export class PlanetEffect {
   getPlanets = this.action$.pipe(
     ofType<b2wActions.GetPlanets>(b2wActions.PlanetActionsEnum.GetPlanets),
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
-    switchMap((planets: PlanetsHttp) => of(new b2wActions.GetPlanetsSuccess(planets.results))),
+    switchMap((planets: PlanetsHttp) => {
+      return forkJoin([
+        of(new b2wActions.GetPlanetsSuccess(planets.results)),
+      ]);
+    }),
     switchMap((data: any) => {
       const [planets, images] = data;
       return forkJoin([
-        of(planets),
-        of(images),
+        of(new b2wActions.GetPlanetsSuccess(planets.results)),
+        of(new b2wActions.GetPlanetsImagesSuccess('teste')),
         this.planetService.getPlanetImage().pipe(
-          map((data$: any) => (console.log(data$)))
+          map(ii => {
+            planets.result.filter(planet => planet.image === ii);
+
+          })
         )
       ]);
     }),
-
     catchError((err: string) => of(new b2wActions.GetPlanetsError(err)))
   );
 
