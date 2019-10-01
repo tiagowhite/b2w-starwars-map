@@ -41,11 +41,10 @@ export class PlanetEffect {
       const [planets, images] = data;
       return forkJoin([
         of(new b2wActions.GetPlanetsSuccess(planets.results)),
-        of(new b2wActions.GetPlanetsImagesSuccess('teste')),
         this.planetService.getPlanetImage().pipe(
-          map(ii => {
-            planets.result.filter(planet => planet.image === ii);
-
+          map((asset: any) => {
+            const names$ = [...new Set(asset.images.map(name => asset.name))];
+            const filter$ = planets.payload.filter()
           })
         )
       ]);
