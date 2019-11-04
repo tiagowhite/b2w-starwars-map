@@ -2,7 +2,7 @@ import {Planet} from '../../models/planet';
 
 export interface PlanetState {
   planets: Array<Planet>;
-  planets_images: any;
+  planets_images: Array<string>;
   selectedPlanet: Planet;
   isLoading: boolean;
   error: boolean;

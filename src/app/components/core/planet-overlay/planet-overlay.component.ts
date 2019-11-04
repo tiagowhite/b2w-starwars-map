@@ -9,7 +9,7 @@ import { PlanetOverlayContent, PlanetOverlayRef } from './planet-overlay-ref';
 export class PlanetOverlayComponent implements OnInit {
 
   renderMethod: 'template' | 'component' | 'text' = 'component';
-  content: PlanetOverlayContent;
+  content: PlanetOverlayContent | any;
   context;
   state: boolean;
 

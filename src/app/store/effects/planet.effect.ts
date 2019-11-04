@@ -1,64 +1,57 @@
 import { Injectable } from '@angular/core';
-import { catchError, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action, Store, select } from '@ngrx/store';
-
-import { forkJoin, Observable, of } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import {
+  GetPlanet,
+  GetPlanetError,
+  GetPlanets,
+  GetPlanetsError,
+  GetPlanetsSuccess,
+  GetPlanetSuccess,
+  PlanetActionsEnum
+} from '../actions/planet.actions';
 import { AppState } from '../state/app.state';
 import { PlanetService } from '../../services/planet.service';
 import { selectPlanetList } from '../selectors/planet.selector';
 import { PlanetsHttp } from '../../models/planets-http';
 import { Planet } from '../../models/planet';
-import * as b2wActions from '../actions/planet.actions';
 import { log } from 'util';
 
 @Injectable()
 export class PlanetEffect {
   @Effect()
-  getPlanet = this.action$.pipe(
-    ofType<b2wActions.GetPlanet>(b2wActions.PlanetActionsEnum.GetPlanet),
+  getPlanet = this.actions.pipe(
+    ofType<GetPlanet>(PlanetActionsEnum.GetPlanet),
     map(action => action.payload),
     withLatestFrom(this.store.pipe(select(selectPlanetList))),
     switchMap(([url, planets]) => {
       const selectedPlanet = planets.filter(planet => planet.url === url)[0];
       return this.planetService.getPlanet<Planet>(selectedPlanet.url).pipe(
-        switchMap((planet: Planet) => of(new b2wActions.GetPlanetSuccess(planet)))
+        switchMap((planet: Planet) => of(new GetPlanetSuccess(planet)))
       );
     }),
-    catchError((err: string) => of(new b2wActions.GetPlanetError(err)))
+    catchError((err: string) => of(new GetPlanetError(err)))
   );
 
+
   @Effect()
-  getPlanets = this.action$.pipe(
-    ofType<b2wActions.GetPlanets>(b2wActions.PlanetActionsEnum.GetPlanets),
+  getPlanets = this.actions.pipe(
+    ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
+   
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
-    switchMap((planets: PlanetsHttp) => {
-      return forkJoin([
-        of(new b2wActions.GetPlanetsSuccess(planets.results)),
-      ]);
-    }),
-    switchMap((data: any) => {
-      const [planets, images] = data;
-      return forkJoin([
-        of(new b2wActions.GetPlanetsSuccess(planets.results)),
-        this.planetService.getPlanetImage().pipe(
-          map((asset: any) => {
-            const names$ = [...new Set(asset.images.map(name => asset.name))];
-            const filter$ = planets.payload.filter()
-          })
-        )
-      ]);
-    }),
-    catchError((err: string) => of(new b2wActions.GetPlanetsError(err)))
+    switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
+
+    catchError((err: string) => of(new GetPlanetsError(err)))
   );
 
 
   constructor(
     private planetService: PlanetService,
-    private action$: Actions,
+    private actions: Actions,
     private store: Store<AppState>
-  ) {
-  }
+  ) { }
 
 
 }

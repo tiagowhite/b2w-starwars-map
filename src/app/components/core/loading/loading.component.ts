@@ -25,7 +25,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
   @Input() mode: 'progress-bar' | 'spinner' | any;
   private loading$: Observable<boolean>;
   private subscription: Subscription;
-  private show: boolean;
+  public show: boolean;
 
   constructor(private store: Store<AppState>) {
     this.loading$ = this.store.pipe(select(isPlanetsListLoading));
