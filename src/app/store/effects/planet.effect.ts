@@ -39,10 +39,8 @@ export class PlanetEffect {
   @Effect()
   getPlanets = this.actions.pipe(
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
-   
     switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
     switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
-
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
 
@@ -51,7 +49,7 @@ export class PlanetEffect {
     private planetService: PlanetService,
     private actions: Actions,
     private store: Store<AppState>
-  ) { }
+  ) {}
 
 
 }
