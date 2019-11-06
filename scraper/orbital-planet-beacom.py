@@ -54,7 +54,7 @@ def scraper(planets_array, target_url):
                 print(colored(log, 'green'))
                 save_images(file_name, planet, r)
             except AttributeError:
-                print(colored('ERROR!!! Image not found..: ' + planet, 'red'))
+                print(colored('ERROR!!! PlanetImages not found..: ' + planet, 'red'))
                 pass
 
 

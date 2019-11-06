@@ -1,11 +1,13 @@
 import { Film } from './film';
 import { Resident } from './resident';
+import { PlanetImages } from './planetImages';
+
 
 export interface Planet {
   id?: number;
   url: string;
   name: string;
-  image?: string;
+  image?: Array<PlanetImages>;
   rotation_period: number;
   orbital_period: number;
   diameter: number;

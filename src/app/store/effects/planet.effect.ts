@@ -5,7 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import {
   GetPlanet,
-  GetPlanetError,
+  GetPlanetError, GetPlanetImages, GetPlanetImagesSuccess,
   GetPlanets,
   GetPlanetsError,
   GetPlanetsSuccess,
@@ -17,7 +17,7 @@ import { PlanetService } from '../../services/planet.service';
 import { selectPlanetList } from '../selectors/planet.selector';
 import { PlanetsHttp } from '../../models/planets-http';
 import { Planet } from '../../models/planet';
-import { log } from 'util';
+import { PlanetImages } from '../../models/planetImages';
 
 @Injectable()
 export class PlanetEffect {
@@ -43,6 +43,21 @@ export class PlanetEffect {
     switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
+
+  @Effect()
+  getPlanetsImages = this.actions.pipe(
+    ofType<GetPlanetImages>(PlanetActionsEnum.GetPlanetImages),
+    withLatestFrom(this.store.pipe(select(selectPlanetList))),
+    switchMap((data: any) => {
+      const filter = data.result.filter();
+      return this.planetService.getPlanetImage<PlanetImages>().pipe(
+        switchMap((image: PlanetImages) => of(new GetPlanetImagesSuccess(image)))
+      );
+    }),
+
+  );
+
+
 
 
   constructor(

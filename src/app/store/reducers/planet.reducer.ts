@@ -6,28 +6,6 @@ export const planetReducer = (
   action: PlanetActions
 ): PlanetState => {
   switch (action.type) {
-    case PlanetActionsEnum.GetPlanets: {
-      return {
-        ...state,
-        isLoading: true
-      };
-    }
-    case PlanetActionsEnum.GetPlanetsSuccess: {
-      return {
-        ...state,
-        isLoading: false,
-        planets: action.payload
-      };
-    }
-
-    case PlanetActionsEnum.GetPlanetsError: {
-      return {
-        ...state,
-        error: true,
-        isLoading: false,
-        errorMessage: action.payload
-      };
-    }
     case PlanetActionsEnum.GetPlanet: {
       return {
         ...state,
@@ -48,6 +26,49 @@ export const planetReducer = (
         errorMessage: action.payload
       };
     }
+    case PlanetActionsEnum.GetPlanets: {
+      return {
+        ...state,
+        isLoading: true
+      };
+    }
+    case PlanetActionsEnum.GetPlanetsSuccess: {
+      return {
+        ...state,
+        isLoading: false,
+        planets: action.payload
+      };
+    }
+    case PlanetActionsEnum.GetPlanetsError: {
+      return {
+        ...state,
+        error: true,
+        isLoading: false,
+        errorMessage: action.payload
+      };
+    }
+    case PlanetActionsEnum.GetPlanetImages: {
+      return {
+        ...state,
+        isLoading: true
+      };
+    }
+    case PlanetActionsEnum.GetPlanetImagesSuccess: {
+      return {
+        ...state,
+        isLoading: false,
+        planetImages: action.payload
+      };
+    }
+    case PlanetActionsEnum.GetPlanetImagesError: {
+      return {
+        ...state,
+        error: true,
+        isLoading: false,
+        errorMessage: action.payload
+      };
+    }
+
     default:
       return state;
   }

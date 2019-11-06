@@ -1,14 +1,39 @@
 import { Action } from '@ngrx/store';
 import { Planet } from '../../models/planet';
+import { PlanetImages } from '../../models/planetImages';
 
 export enum PlanetActionsEnum {
   GetPlanets = '[Get Planets] Get Planets',
-  GetPlanetsSuccess = '[Get Planets] Get Planets Success',
+  GetPlanetsSuccess = '[Get Planets Success] Get Planets Success',
   GetPlanetsError = '[Get Planets Error] Get Planets Error',
+
   GetPlanet = '[Get Planet] Get Planet',
-  GetPlanetSuccess = '[Get Planet] Get Planet Success',
-  GetPlanetError = '[Get Planet Error] Get Planet Error'
+  GetPlanetSuccess = '[Get Planet Success] Get Planet Success',
+  GetPlanetError = '[Get Planet Error] Get Planet Error',
+
+  GetPlanetImages = '[Get Planet Images] Get Planet Images',
+  GetPlanetImagesSuccess = '[Get Planet Images Success] Get Planet Images Success',
+  GetPlanetImagesError = '[Get Planet Images Error] Get Planet Images Error'
 }
+
+export class GetPlanet implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanet;
+  constructor(public payload: string) {
+  }
+}
+
+export class GetPlanetSuccess implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetSuccess;
+  constructor(public payload: Planet) {
+  }
+}
+
+export class GetPlanetError implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetError;
+  constructor(public payload: string) {
+  }
+}
+
 
 export class GetPlanets implements Action {
   public readonly type = PlanetActionsEnum.GetPlanets;
@@ -16,40 +41,34 @@ export class GetPlanets implements Action {
 
 export class GetPlanetsSuccess implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsSuccess;
-
   constructor(public payload: Array<Planet>) {
   }
 }
 
 export class GetPlanetsError implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsError;
-
-  constructor(public payload: string) {
-  }
-
-}
-
-export class GetPlanet implements Action {
-  public readonly type = PlanetActionsEnum.GetPlanet;
-
-  constructor(public payload: string) {
-  }
-
-}
-
-export class GetPlanetSuccess implements Action {
-  public readonly type = PlanetActionsEnum.GetPlanetSuccess;
-
-  constructor(public payload: Planet) {
-  }
-}
-
-export class GetPlanetError implements Action {
-  public readonly type = PlanetActionsEnum.GetPlanetError;
-
   constructor(public payload: string) {
   }
 }
+
+export class GetPlanetImages implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetImages;
+
+}
+export class GetPlanetImagesSuccess implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetImagesSuccess;
+
+  constructor(public payload: PlanetImages) {
+  }
+}
+export class GetPlanetImagesError implements Action {
+  public readonly type = PlanetActionsEnum.GetPlanetImagesError;
+  constructor(public payload: string) {
+  }
+}
+
+
+
 
 export type PlanetActions =
   GetPlanets
@@ -57,4 +76,7 @@ export type PlanetActions =
   | GetPlanet
   | GetPlanetSuccess
   | GetPlanetsError
-  | GetPlanetError;
+  | GetPlanetError
+  | GetPlanetImages
+  | GetPlanetImagesSuccess
+  | GetPlanetImagesError;
