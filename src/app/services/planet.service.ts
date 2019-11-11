@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { mergeMap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -22,8 +23,11 @@ export class PlanetService {
     return this.http.get<T>(url);
   }
 
-  public getPlanetImage<T>(): Observable<T> {
-    return this.http.get<T>(this.images);
+  public getPlanetImage<T>(): Observable<T | any> {
+    return forkJoin({
+      planets: of(this.http.get<T>(this.planetUrl)),
+      images: of(this.http.get<any>(this.images)),
+    });
   }
 
 

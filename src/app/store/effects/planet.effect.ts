@@ -47,24 +47,18 @@ export class PlanetEffect {
   @Effect()
   getPlanetsImages = this.actions.pipe(
     ofType<GetPlanetImages>(PlanetActionsEnum.GetPlanetImages),
-    withLatestFrom(this.store.pipe(select(selectPlanetList))),
-    switchMap((data: any) => {
-      const filter = data.result.filter();
-      return this.planetService.getPlanetImage<PlanetImages>().pipe(
-        switchMap((image: PlanetImages) => of(new GetPlanetImagesSuccess(image)))
-      );
-    }),
-
+    switchMap(() => this.planetService.getPlanetImage<PlanetImages>()),
+    switchMap((image: PlanetImages) => of(new GetPlanetImagesSuccess(image))),
+    catchError((err: string) => of(new GetPlanetsError(err)))
   );
-
-
 
 
   constructor(
     private planetService: PlanetService,
     private actions: Actions,
     private store: Store<AppState>
-  ) {}
+  ) {
+  }
 
 
 }
