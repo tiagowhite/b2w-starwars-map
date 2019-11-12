@@ -29,7 +29,6 @@ export class PlanetsContainerComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(new GetPlanets());
-    this.store.dispatch(new GetPlanetImages());
   }
 
   goToPlanet(event: string) {
