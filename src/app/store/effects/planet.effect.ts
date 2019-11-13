@@ -43,18 +43,7 @@ export class PlanetEffect {
     switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
-  /*
-  @Effect()
-loadNews = this.actions$.pipe(
-  ofType(NewsActionsTypes.Load),
-  switchMap(action => {
-    return this.http.get('some url').pipe(
-      map((response: any) => new LoadNewsSuccess({entities: response.todaysNews})),
-      catchError(error => of(new LoadNewsError(error)))
-    );
-  }),
-);
-   */
+
 
   @Effect()
   getPlanetsImages = this.actions.pipe(

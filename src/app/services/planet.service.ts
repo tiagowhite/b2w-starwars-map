@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable, of } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { mergeMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,6 +27,16 @@ export class PlanetService {
     return this.http.get<T>(this.images);
   }
 
+  public getTest<P, I>(): any {
+    const planets = this.getPlanets<P>();
+    const images = this.getPlanetImage<I>();
+    return forkJoin([planets, images]).pipe(
+      map(([planets$, images$]) => {
+        planets$[0].results.filter(name => name === images$.images.name);
+      })
+    );
+
+  }
 
 }
 
