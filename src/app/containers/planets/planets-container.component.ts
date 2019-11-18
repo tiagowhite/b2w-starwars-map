@@ -1,14 +1,15 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { selectPlanetList } from '../../store/selectors/planet.selector';
+import { selectPlanetImageList, selectPlanetList } from '../../store/selectors/planet.selector';
 import { AppState } from '../../store/state/app.state';
 import { Router } from '@angular/router';
 import { GetPlanetImages, GetPlanets } from '../../store/actions/planet.actions';
 import { Store, select } from '@ngrx/store';
 import { PlanetOverlayService } from '../../components/core/planet-overlay/planet-overlay.service';
 import { PlanetContainerComponent } from '../planet/planet-container.component';
-import { Observable } from 'rxjs';
+import { combineLatest, merge, Observable } from 'rxjs';
 import { Planet } from '../../models/planet';
-
+import { PlanetImages } from '../../models/planetImages';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -18,18 +19,23 @@ import { Planet } from '../../models/planet';
 })
 export class PlanetsContainerComponent implements OnInit {
 
-  planets$: Observable<Planet[]>;
+  planets$: Observable<Array<Planet>>;
+  images$: Observable<Array<PlanetImages>>;
+
 
   constructor(
-    private store: Store<AppState>,
+    private store$: Store<AppState>,
     private router: Router,
     private planetOverlay: PlanetOverlayService,
   ) {
-    this.planets$ = this.store.pipe(select(selectPlanetList));
+    this.images$ = this.store$.pipe(select(selectPlanetImageList));
+    this.planets$ = this.store$.pipe(select(selectPlanetList));
+
   }
 
   ngOnInit() {
-    this.store.dispatch(new GetPlanets());
+    this.store$.dispatch(new GetPlanetImages());
+    this.store$.dispatch(new GetPlanets());
   }
 
   goToPlanet(event: string) {

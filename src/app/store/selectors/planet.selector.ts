@@ -3,7 +3,6 @@ import { createSelector } from '@ngrx/store';
 import { PlanetState } from '../state/planet.state';
 
 const selectPlanets = (state: AppState) => state.planets;
-const selectPlanetImages = (state: AppState) => state.planets.planetImages;
 
 export const isPlanetsListLoading = createSelector(
   selectPlanets,
@@ -12,8 +11,12 @@ export const isPlanetsListLoading = createSelector(
 
 export const selectPlanetList = createSelector(
   selectPlanets,
-  selectPlanetImages,
   (state: PlanetState) => state.planets
+);
+
+export const selectPlanetImageList = createSelector(
+  selectPlanets,
+  (state: PlanetState) => state.planetImages
 );
 
 export const selectSelectedPlanet = createSelector(

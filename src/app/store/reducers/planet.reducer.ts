@@ -1,5 +1,6 @@
 import { initialPlanetState, PlanetState } from '../state/planet.state';
 import { PlanetActions, PlanetActionsEnum } from '../actions/planet.actions';
+import { selectPlanetImageList } from '../selectors/planet.selector';
 
 export const planetReducer = (
   state = initialPlanetState,
@@ -19,6 +20,7 @@ export const planetReducer = (
         selectedPlanet: action.payload
       };
     }
+
     case PlanetActionsEnum.GetPlanetError: {
       return {
         ...state,
@@ -68,6 +70,15 @@ export const planetReducer = (
         errorMessage: action.payload
       };
     }
+    case PlanetActionsEnum.SetPlanetImages: {
+      return {
+        ...state,
+        isLoading: false,
+        planets: state.planets
+
+      };
+    }
+
 
     default:
       return state;

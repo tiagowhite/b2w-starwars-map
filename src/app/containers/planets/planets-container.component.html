@@ -1,2 +1,9 @@
 <app-loading [mode]="'progress-bar'"></app-loading>
-<app-planet-item [planets]="planets$ | async" (planetSelected)="goToPlanet($event)"></app-planet-item>
+<app-planet-item
+  [planets]="planets$ | async"
+  [images]="images$ | async"
+  (planetSelected)="goToPlanet($event)">
+
+</app-planet-item>
+
+

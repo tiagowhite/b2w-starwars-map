@@ -3,7 +3,7 @@ import { PlanetImages } from '../../models/planetImages';
 
 export interface PlanetState {
   planets: Array<Planet>;
-  planetImages: PlanetImages;
+  planetImages: Array<PlanetImages>;
   selectedPlanet: Planet;
   isLoading: boolean;
   error: boolean;

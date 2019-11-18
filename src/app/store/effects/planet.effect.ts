@@ -48,8 +48,8 @@ export class PlanetEffect {
   @Effect()
   getPlanetsImages = this.actions.pipe(
     ofType<GetPlanetImages>(PlanetActionsEnum.GetPlanetImages),
-    switchMap(() => this.planetService.getPlanetImage<PlanetImages>()),
-    switchMap((image: PlanetImages) => of(new GetPlanetImagesSuccess(image))),
+    switchMap(() => this.planetService.getPlanetImage<Array<PlanetImages>>()),
+    switchMap((planetImages: Array<PlanetImages>) => of(new GetPlanetImagesSuccess(planetImages))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
 
