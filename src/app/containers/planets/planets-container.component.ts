@@ -6,10 +6,9 @@ import { GetPlanetImages, GetPlanets } from '../../store/actions/planet.actions'
 import { Store, select } from '@ngrx/store';
 import { PlanetOverlayService } from '../../components/core/planet-overlay/planet-overlay.service';
 import { PlanetContainerComponent } from '../planet/planet-container.component';
-import { combineLatest, merge, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Planet } from '../../models/planet';
 import { PlanetImages } from '../../models/planetImages';
-import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -35,7 +34,7 @@ export class PlanetsContainerComponent implements OnInit {
 
   ngOnInit() {
     this.store$.dispatch(new GetPlanetImages());
-    this.store$.dispatch(new GetPlanets());
+    this.store$.dispatch(new GetPlanets({page: 1}));
   }
 
   goToPlanet(event: string) {

@@ -41,6 +41,8 @@ export class GetPlanetError implements Action {
 
 export class GetPlanets implements Action {
   public readonly type = PlanetActionsEnum.GetPlanets;
+  constructor(public payload: {page: number}) {
+  }
 }
 
 export class GetPlanetsSuccess implements Action {

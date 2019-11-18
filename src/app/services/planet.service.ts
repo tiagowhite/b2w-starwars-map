@@ -9,14 +9,14 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PlanetService {
-  planetUrl = `${environment.swapi}planets`;
+  planetUrl = `${environment.swapi}planets/?page=`;
   images = `${environment.mockApi}images.json`;
 
   constructor(private http: HttpClient) {
   }
 
-  public getPlanets<T>(): Observable<T> {
-    return this.http.get<T>(this.planetUrl);
+  public getPlanets<T>(page: number, limit: number): Observable<T> {
+    return this.http.get<T>( `${this.planetUrl}${page}`);
   }
 
   public getPlanet<T>(url: string): Observable<T> {
@@ -25,16 +25,6 @@ export class PlanetService {
 
   public getPlanetImage<T>(): Observable<T> {
     return this.http.get<T>(this.images);
-  }
-
-  public getTest<P, I>(): any {
-    const planets = this.getPlanets<P>();
-    const images = this.getPlanetImage<I>();
-    return forkJoin([planets, images]).pipe(
-      map(([planets$, images$]) => {
-        planets$[0].filter(name => name === images$[0].images.name);
-      })
-    );
   }
 
 }

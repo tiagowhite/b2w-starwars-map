@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, withLatestFrom } from 'rxjs/operators';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { forkJoin, of } from 'rxjs';
@@ -39,7 +39,9 @@ export class PlanetEffect {
   @Effect()
   getPlanets = this.actions.pipe(
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
-    switchMap(() => this.planetService.getPlanets<PlanetsHttp>()),
+    map(action => action.payload),
+    withLatestFrom(this.store.pipe(select(selectPlanetList))),
+    switchMap(([{page}]) => this.planetService.getPlanets<PlanetsHttp>(page, 7)),
     switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );
