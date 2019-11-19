@@ -9,6 +9,7 @@ import { PlanetContainerComponent } from '../planet/planet-container.component';
 import { Observable } from 'rxjs';
 import { Planet } from '../../models/planet';
 import { PlanetImages } from '../../models/planetImages';
+import { log } from 'util';
 
 
 @Component({
@@ -31,25 +32,20 @@ export class PlanetsContainerComponent implements OnInit {
     this.planets$ = this.store$.pipe(select(selectPlanetList));
   }
 
-  throttle = 300;
-  scrollDistance = 0.2;
-  limit = 7;
-  page = 1;
-
-
-  onScrollEnd() {
-    this.page += 1;
-    if (this.page <= 5) {
-      this.store$.dispatch(new GetPlanets({page: this.page}));
-    }
-  }
 
   ngOnInit() {
     this.store$.dispatch(new GetPlanetImages());
+    this.store$.dispatch(new GetPlanets({page: 1}));
   }
 
   goToPlanet(event: string) {
     this.showPlanetDetail(null, origin, event);
+  }
+
+  loadPageResults(page: number) {
+    log(page);
+    this.store$.dispatch(new GetPlanetImages());
+    this.store$.dispatch(new GetPlanets({page}));
   }
 
   showPlanetDetail(content: TemplateRef<any>, origin, selectedPlanet) {

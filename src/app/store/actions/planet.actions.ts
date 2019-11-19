@@ -1,10 +1,12 @@
-import { Action, State } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import { Planet } from '../../models/planet';
 import { PlanetImages } from '../../models/planetImages';
 
 export enum PlanetActionsEnum {
+
   GetPlanets = '[Get Planets] Get Planets',
   GetPlanetsSuccess = '[Get Planets Success] Get Planets Success',
+
   GetPlanetsError = '[Get Planets Error] Get Planets Error',
   SetPlanetImages = '[Set Planet Images] Set Planet Images',
 
@@ -41,16 +43,18 @@ export class GetPlanetError implements Action {
 
 export class GetPlanets implements Action {
   public readonly type = PlanetActionsEnum.GetPlanets;
-  constructor(public payload: {page: number}) {
+
+  constructor(public payload: { page: number }) {
   }
 }
 
 export class GetPlanetsSuccess implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsSuccess;
 
-  constructor(public payload: Array<Planet>) {
+  constructor(public payload: any) {
   }
 }
+
 
 export class GetPlanetsError implements Action {
   public readonly type = PlanetActionsEnum.GetPlanetsError;

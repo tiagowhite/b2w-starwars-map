@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from '../../store/state/app.state';
 import { Store, select } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { GetPlanet, GetPlanetImages } from '../../store/actions/planet.actions';
+import { GetPlanet } from '../../store/actions/planet.actions';
 import { selectSelectedPlanet } from '../../store/selectors/planet.selector';
 import { PlanetOverlayRef } from '../../components/core/planet-overlay/planet-overlay-ref';
 import { Observable } from 'rxjs';

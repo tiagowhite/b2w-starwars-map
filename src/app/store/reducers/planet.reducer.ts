@@ -1,6 +1,5 @@
 import { initialPlanetState, PlanetState } from '../state/planet.state';
 import { PlanetActions, PlanetActionsEnum } from '../actions/planet.actions';
-import { selectPlanetImageList } from '../selectors/planet.selector';
 
 export const planetReducer = (
   state = initialPlanetState,

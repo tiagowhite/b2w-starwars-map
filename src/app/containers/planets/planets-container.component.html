@@ -2,7 +2,8 @@
 <app-planet-item
   [planets]="planets$ | async"
   [images]="images$ | async"
-  (planetSelected)="goToPlanet($event)">
+  (planetSelected)="goToPlanet($event)"
+  (pageScrolled)="loadPageResults($event)">
 </app-planet-item>
 
 

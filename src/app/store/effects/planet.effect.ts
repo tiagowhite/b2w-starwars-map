@@ -41,7 +41,7 @@ export class PlanetEffect {
     ofType<GetPlanets>(PlanetActionsEnum.GetPlanets),
     map(action => action.payload),
     withLatestFrom(this.store.pipe(select(selectPlanetList))),
-    switchMap(([{page}]) => this.planetService.getPlanets<PlanetsHttp>(page, 7)),
+    switchMap(([{page}]) => this.planetService.getPlanets<PlanetsHttp>(page)),
     switchMap((planets: PlanetsHttp) => of(new GetPlanetsSuccess(planets.results))),
     catchError((err: string) => of(new GetPlanetsError(err)))
   );

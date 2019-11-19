@@ -15,7 +15,7 @@ export class PlanetService {
   constructor(private http: HttpClient) {
   }
 
-  public getPlanets<T>(page: number, limit: number): Observable<T> {
+  public getPlanets<T>(page: number, limit: number = 7): Observable<T> {
     return this.http.get<T>( `${this.planetUrl}${page}`);
   }
 
