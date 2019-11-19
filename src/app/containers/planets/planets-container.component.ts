@@ -29,12 +29,23 @@ export class PlanetsContainerComponent implements OnInit {
   ) {
     this.images$ = this.store$.pipe(select(selectPlanetImageList));
     this.planets$ = this.store$.pipe(select(selectPlanetList));
+  }
 
+  throttle = 300;
+  scrollDistance = 0.2;
+  limit = 7;
+  page = 1;
+
+
+  onScrollEnd() {
+    this.page += 1;
+    if (this.page <= 5) {
+      this.store$.dispatch(new GetPlanets({page: this.page}));
+    }
   }
 
   ngOnInit() {
     this.store$.dispatch(new GetPlanetImages());
-    this.store$.dispatch(new GetPlanets({page: 1}));
   }
 
   goToPlanet(event: string) {

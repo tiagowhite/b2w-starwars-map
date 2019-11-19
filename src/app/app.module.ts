@@ -17,6 +17,7 @@ import { PlanetEffect } from './store/effects/planet.effect';
 import { ConfigEffect } from './store/effects/config.effect';
 import { appReducer } from './store/reducers/app.reducer';
 import { StoreModule } from '@ngrx/store';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { StoreModule } from '@ngrx/store';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    InfiniteScrollModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([PlanetEffect, ConfigEffect]),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),

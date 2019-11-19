@@ -13,6 +13,7 @@ import { PlanetContainerComponent } from '../containers/planet/planet-container.
 import { PlanetsContainerComponent } from '../containers/planets/planets-container.component';
 import { LoadingComponent } from './core/loading/loading.component';
 import { PlanetItemComponent } from './planet/item/planet-item.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PlanetItemComponent } from './planet/item/planet-item.component';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    InfiniteScrollModule
   ],
   exports: [
     RouterModule,
